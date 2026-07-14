@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Психологічна допомога | Катерина Тарасова & Анастасія Кульчицька</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #111815;
+            --bg: #111815; /* Глибокий лісовий спокійний колір */
             --text: #f3f4f6;
-            --accent-warm: #e28766;
-            --accent-glow: #8fbfa7;
+            --accent-warm: #e28766; /* Тепла теракота */
+            --accent-glow: #8fbfa7; /* М'ятне заспокійливе сяйво */
             --card-bg: rgba(255, 255, 255, 0.03);
             --border: rgba(255, 255, 255, 0.08);
         }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg);
@@ -23,49 +24,61 @@
             overflow-x: hidden;
             line-height: 1.7;
         }
-        /* Оновлений декор, який більше не заважає клікам */
+
         .glow-bg {
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(143,191,167,0.06) 0%, rgba(0,0,0,0) 70%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(143,191,167,0.05) 0%, rgba(0,0,0,0) 70%);
             top: -150px;
             right: -100px;
             z-index: -1;
-            pointer-events: none; /* Робить шар повністю прозорим для кліків */
-            animation: floatGlow 15s infinite alternate ease-in-out;
+            pointer-events: none;
+            animation: floatGlow 18s infinite alternate ease-in-out;
         }
+
         @keyframes floatGlow {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(-30px, 30px) scale(1.05); }
+            100% { transform: translate(-40px, 40px) scale(1.08); }
         }
+
         header {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 70px 20px 30px;
+            padding: 70px 20px 40px;
             text-align: center;
         }
+
         header h1 {
             font-size: 2.8rem;
             font-weight: 300;
             letter-spacing: -1px;
-            margin: 0;
+            margin: 0 0 20px;
             background: linear-gradient(45deg, var(--text), var(--accent-glow));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        header p {
-            font-size: 1.15rem;
-            color: #9ca3af;
-            max-width: 700px;
-            margin: 15px auto 0;
+
+        .tandem-intro {
+            font-size: 1.05rem;
+            color: #d1d5db;
+            line-height: 1.8;
             font-weight: 300;
+            max-width: 780px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px dashed rgba(143, 191, 167, 0.15);
+            padding: 25px;
+            border-radius: 16px;
         }
+
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px 60px;
         }
+
+        /* Дихальний тренажер */
         .breathing-section {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -75,9 +88,10 @@
             backdrop-filter: blur(10px);
             margin-bottom: 50px;
         }
+
         .breathing-circle {
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             background: radial-gradient(circle, rgba(143,191,167,0.15) 0%, rgba(143,191,167,0.03) 70%);
             border: 2px solid var(--accent-glow);
             border-radius: 50%;
@@ -85,110 +99,186 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--accent-glow);
             cursor: pointer;
             transition: all 0.5s ease;
             box-shadow: 0 0 15px rgba(143,191,167,0.05);
+            user-select: none;
         }
+
         .breathing-circle.active {
             animation: breathe 8s infinite ease-in-out;
         }
+
         @keyframes breathe {
             0%, 100% { transform: scale(1); background-color: rgba(143,191,167,0.03); }
             40% { transform: scale(1.35); background-color: rgba(143,191,167,0.2); box-shadow: 0 0 35px rgba(143,191,167,0.25); }
             60% { transform: scale(1.35); }
         }
+
+        /* Команда */
         .team-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-bottom: 50px;
+            align-items: start;
         }
+
         .profile-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 35px;
+            border-radius: 24px;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: transform 0.3s ease;
         }
+
+        .profile-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(143, 191, 167, 0.2);
+        }
+
         .profile-card h2 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--accent-glow);
-            margin-top: 0;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--text);
+            margin: 0 0 5px;
         }
+
         .role-tag {
             display: inline-block;
-            color: var(--accent-warm);
+            color: var(--accent-glow);
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-weight: 600;
         }
+
         .manifesto {
             font-style: italic;
             border-left: 2px solid var(--accent-warm);
-            padding-left: 15px;
-            color: #d1d5db;
-            margin: 20px 0;
-            font-size: 0.95rem;
+            padding-left: 20px;
+            color: #e5e7eb;
+            margin: 25px 0;
+            font-size: 0.98rem;
+            font-weight: 300;
+            line-height: 1.6;
         }
+
+        .info-block {
+            margin-bottom: 20px;
+        }
+
+        .info-block h4 {
+            color: var(--accent-warm);
+            margin: 0 0 5px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-block p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            font-weight: 300;
+        }
+
+        /* Проєкти теги */
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .tag {
+            background: rgba(226, 135, 102, 0.08);
+            border: 1px solid rgba(226, 135, 102, 0.2);
+            color: var(--accent-warm);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
         .contacts-list {
             list-style: none;
             padding: 0;
-            margin: 20px 0 0;
+            margin: 30px 0 0;
             font-size: 0.95rem;
+            border-top: 1px solid var(--border);
+            padding-top: 25px;
         }
+
         .contacts-list li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: #cbd5e1;
+            display: flex;
+            align-items: baseline;
         }
+
+        .contacts-list span.icon {
+            margin-right: 10px;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
         .contacts-list a {
             color: var(--accent-glow);
             text-decoration: none;
-            border-bottom: 1px dashed rgba(143,191,167,0.4);
+            border-bottom: 1px dashed rgba(143,191,167,0.3);
             transition: all 0.3s;
         }
+
         .contacts-list a:hover {
             color: var(--accent-warm);
             border-bottom-color: var(--accent-warm);
         }
+
+        /* Курс та заклики */
         .action-block {
             border-top: 1px solid var(--border);
-            padding-top: 40px;
+            padding-top: 50px;
             text-align: center;
         }
+
         .action-block h3 {
-            font-size: 1.5rem;
+            font-size: 1.7rem;
             font-weight: 400;
             color: var(--accent-warm);
+            margin: 0 0 10px;
         }
+
         .btn {
             display: inline-block;
             background-color: var(--accent-warm);
             color: #111815;
-            padding: 16px 35px;
+            padding: 16px 40px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
-            margin: 20px 0;
+            margin: 25px 0;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(226, 135, 102, 0.2);
+            box-shadow: 0 4px 15px rgba(226, 135, 102, 0.15);
         }
+
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(226, 135, 102, 0.35);
+            box-shadow: 0 6px 20px rgba(226, 135, 102, 0.3);
             background-color: #fca5a5;
         }
-        @media (max-width: 800px) {
+
+        @media (max-width: 900px) {
             .team-grid { grid-template-columns: 1fr; }
             header h1 { font-size: 2.2rem; }
+            .profile-card { padding: 30px; }
         }
     </style>
 </head>
@@ -198,77 +288,125 @@
 
     <header>
         <h1>Простір Ментальної Стійкості</h1>
-        <p>Кризове консультування, психологічна підтримка та адаптація. Ми поруч, щоб допомогти вам відновити внутрішній ресурс.</p>
+        <div class="tandem-intro">
+            Ми — професійний тандем психологинь, чия співпраця базується на спільних цінностях, повазі до людської гідності та відданості справі. Ми об'єднали знання та практичний досвід, щоб забезпечити кваліфіковану психологічну допомогу, кризове консультування та психоемоційну підтримку тим, хто цього потребує.
+        </div>
     </header>
 
     <div class="container">
         
+        <!-- ДИХАЛЬНИЙ ТРЕНАЖЕР -->
         <section class="breathing-section">
-            <h3 style="margin-top:0; font-weight: 400; color: #9ca3af; font-size: 1.1rem;">Відчуваєте тривогу просто зараз?</h3>
-            <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 15px;">Зробіть паузу. Натисніть на коло та дихайте в такт: вдих при розширенні, видих при звуженні.</p>
+            <h3 style="margin-top:0; font-weight: 400; color: #9ca3af; font-size: 1.1rem;">Відчуваєте тривогу чи напругу?</h3>
+            <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 15px;">Зробіть коротку паузу. Натисніть на коло та дихайте в такт: глибокий вдих при розширенні, повільний видих при звуженні.</p>
             <div class="breathing-circle" id="breathBtn">Дихати</div>
         </section>
 
+        <!-- НАША КОМАНДА -->
         <div class="team-grid">
             
+            <!-- КАТЕРИНА ТАРАСОВА -->
             <div class="profile-card">
                 <div>
-                    <span class="role-tag">Кризовий психолог (PsyDoc)</span>
+                    <span class="role-tag">Кризовий психолог | PsyDoc</span>
                     <h2>Катерина Тарасова</h2>
-                    <p style="font-size: 0.95rem; color: #9ca3af;">Ветеранка війни, старший бойовий медик у відставці, КПТ-консультант.</p>
+                    
                     <div class="manifesto">
-                        «Працюю з темами повернення, психологічної підтримки та реінтеграції ветеранок».
+                        «Моє покликання — бути опорою в часи найвищої вразливості, допомагаючи трансформувати травматичний досвід у ресурс для подальшого життя».
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Про мене</h4>
+                        <p>Ветеранка війни, старший бойовий медик у відставці, КПТ-консультантка, психосоціальна консультантка ТЧХУ, тренерка соціальних та громадських проєктів. Менеджерка TRiM та фасилітаторка груп підтримки.</p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Досвід та освіта</h4>
+                        <p>Магістр психології, здобуваю спеціалізацію клінічного психолога. Військовий досвід дає змогу глибоко розуміти природу травми, кризи та адаптації людини після важких життєвих випробувань.</p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Методологія</h4>
+                        <p>Поєдную науково доведені підходи: когнітивно-поведінкову терапію (КПТ), трансактний аналіз, юнгіанський аналіз, EMDR та діалектичну поведінкову терапію (ДПТ).</p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Авторські терапевтичні карти та колоди</h4>
+                        <div class="project-tags">
+                            <span class="tag">«Стежка стійкості»</span>
+                            <span class="tag">«Без Ілюзій»</span>
+                            <span class="tag">«ЗСУВ»</span>
+                            <span class="tag">«Білі плями»</span>
+                            <span class="tag">«Контур»</span>
+                            <span class="tag">«Мономіф»</span>
+                            <span class="tag">«8 кроків»</span>
+                        </div>
                     </div>
                 </div>
+
                 <div>
                     <ul class="contacts-list">
-                        <li>📞 <b>Тел:</b> <a href="tel:+380635110069">+380 (63) 511-00-69</a> / <a href="tel:+380977836554">+380 (97) 783-65-54</a></li>
-                        <li>✉️ <b>Email:</b> <a href="mailto:x.psydoc.x@gmail.com">x.psydoc.x@gmail.com</a></li>
-                        <li>👥 <b>Facebook:</b> <a href="https://www.facebook.com/ekaterina.tarasova.14766" target="_blank">Профіль FB</a></li>
-                        <li>📸 <b>Instagram / Threads:</b> <a href="https://www.instagram.com/x.psydoc.x" target="_blank">@x.psydoc.x</a></li>
-                        <li>💬 <b>Telegram:</b> <a href="https://t.me/x_psydoc_x" target="_blank">@x_psydoc_x</a></li>
-                        <li>📱 <b>Viber / Signal:</b> +380977836554</li>
-                        <li>💬 <b>WhatsApp:</b> @x.psydoc.x</li>
-                        <li>🛡️ <b>Milchat ID:</b> d4b8ca92</li>
-                        <li>📍 <b>Локація:</b> м. Рівне (очно за записом)</li>
+                        <li><span class="icon">📞</span> <b>Тел:</b>&nbsp;<a href="tel:+380635110069">+380 (63) 511-00-69</a>&nbsp;/&nbsp;<a href="tel:+380977836554">+380 (97) 783-65-54</a></li>
+                        <li><span class="icon">✉️</span> <b>Email:</b>&nbsp;<a href="mailto:x.psydoc.x@gmail.com">x.psydoc.x@gmail.com</a></li>
+                        <li><span class="icon">👥</span> <b>Facebook:</b>&nbsp;<a href="https://www.facebook.com/ekaterina.tarasova.14766" target="_blank" rel="noopener noreferrer">Профіль FB</a></li>
+                        <li><span class="icon">📸</span> <b>Instagram / Threads:</b>&nbsp;<a href="https://www.instagram.com/x.psydoc.x" target="_blank" rel="noopener noreferrer">@x.psydoc.x</a></li>
+                        <li><span class="icon">💬</span> <b>Telegram:</b>&nbsp;<a href="https://t.me/x_psydoc_x" target="_blank" rel="noopener noreferrer">@x_psydoc_x</a></li>
+                        <li><span class="icon">📱</span> <b>Viber / Signal:</b>&nbsp;+380977836554</li>
+                        <li><span class="icon">💬</span> <b>WhatsApp:</b>&nbsp;@x.psydoc.x</li>
+                        <li><span class="icon">🛡️</span> <b>Milchat ID:</b>&nbsp;d4b8ca92</li>
+                        <li><span class="icon">📍</span> <b>Локація:</b>&nbsp;м. Рівне (приватна практика та офлайн)</li>
                     </ul>
                 </div>
             </div>
 
+            <!-- АНАСТАСІЯ КУЛЬЧИЦЬКА -->
             <div class="profile-card">
                 <div>
                     <span class="role-tag">Практичний психолог</span>
                     <h2>Анастасія Кульчицька</h2>
-                    <p style="font-size: 0.95rem; color: #9ca3af;">Психосоціальний консультант Товариства Червоного Хреста України, консультант з військової, дитячої та сімейної психології.</p>
+                    
                     <div class="manifesto">
-                        «Допомагаю долати емоційні труднощі, кризові стани та відновлювати життєву рівновагу».
+                        «Допомагаю долати емоційні труднощі та відновлювати внутрішню рівновагу».
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Про мене</h4>
+                        <p>Магістр з психології, практичний психолог, психосоціальний консультант Українського Червоного Хреста.</p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Професійний фокус</h4>
+                        <p>Анастасія спеціалізується на наданні психосоціальної підтримки в умовах кризових ситуацій. Має глибокі компетенції у сфері військової психології, активно працює з військовослужбовцями та їхніми родинами. Надає фахову психологічну допомогу в складних питаннях дитячої та сімейної психології.</p>
                     </div>
                 </div>
+
                 <div>
-                    <ul class="contacts-list">
-                        <li>📞 <b>Тел:</b> <a href="tel:+380682417264">+380 (68) 241-72-64</a></li>
-                        <li>👥 <b>Facebook:</b> <a href="https://www.facebook.com/profile.php?id=100021855495855" target="_blank">Профіль FB</a></li>
-                        <li>📸 <b>Instagram:</b> <a href="https://www.instagram.com/anactacijka" target="_blank">@anactacijka</a></li>
-                        <li>💬 <b>Telegram:</b> <a href="https://t.me/anactacijka" target="_blank">@anactacijka</a></li>
-                        <li>📱 <b>Viber:</b> +380682417264</li>
+                    <ul class="contacts-list" style="margin-top: 135px;"> <!-- Вирівнювання списку контактів -->
+                        <li><span class="icon">📞</span> <b>Тел:</b>&nbsp;<a href="tel:+380682417264">+380 (68) 241-72-64</a></li>
+                        <li><span class="icon">👥</span> <b>Facebook:</b>&nbsp;<a href="https://www.facebook.com/profile.php?id=100021855495855" target="_blank" rel="noopener noreferrer">Профіль FB</a></li>
+                        <li><span class="icon">📸</span> <b>Instagram:</b>&nbsp;<a href="https://www.instagram.com/anactacijka" target="_blank" rel="noopener noreferrer">@anactacijka</a></li>
+                        <li><span class="icon">💬</span> <b>Telegram:</b>&nbsp;<a href="https://t.me/anactacijka" target="_blank" rel="noopener noreferrer">@anactacijka</a></li>
+                        <li><span class="icon">📱</span> <b>Viber:</b>&nbsp;+380682417264</li>
                     </ul>
                 </div>
             </div>
 
         </div>
 
+        <!-- НАВЧАННЯ ТА СПІВПРАЦЯ -->
         <section class="action-block">
             <h3>Навчальний курс «Від фронту до дому»</h3>
             <p style="color: #9ca3af; max-width: 600px; margin: 10px auto 20px;">Програма психологічної адаптації, підтримки та розуміння для тих, хто повертається до цивільного життя, та їхніх близьких.</p>
-            <a href="https://forms.gle/7rKhADH2onNPycK9A" class="btn" target="_blank">Заповнити форму для запису</a>
+            <a href="https://forms.gle/7rKhADH2onNPycK9A" class="btn" target="_blank" rel="noopener noreferrer">Заповнити форму для запису</a>
             
             <p style="margin-top: 30px; font-size: 0.95rem; color: #6b7280;">
-                🤝 <b>Співпраця:</b> З питань партнерства та спільних проєктів пишіть Катерині у месенджери або на пошту <a href="mailto:x.psydoc.x@gmail.com" style="color: var(--accent-warm); text-decoration: none;">x.psydoc.x@gmail.com</a>
+                🤝 <b>Співпраця:</b> З питань партнерства, спільних громадських проєктів чи офлайн-тренінгів звертайтеся до Катерини через месенджери або на пошту <a href="mailto:x.psydoc.x@gmail.com" style="color: var(--accent-warm); text-decoration: none;">x.psydoc.x@gmail.com</a>
             </p>
         </section>
 
     </div>
 
+    <!-- Скрипт дихання -->
     <script>
         const btn = document.getElementById('breathBtn');
         let isBreathing = false;
