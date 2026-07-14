@@ -2,409 +2,1013 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Практика та Самодопомога | PsyDoc</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Кабінет самодопомоги | Тут і зараз</title>
+    
+    <!-- Красивий психологічний значок у адресній стрічці (векторний лотос у колі) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%239bc4b1' stroke-width='2'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23131c18'/%3E%3Cpath d='M16 6C16 6 23 13 23 18C23 21.8 19.8 25 16 25C12.2 25 9 21.8 9 18C9 13 16 6 16 6Z' fill='%239bc4b1' fill-opacity='0.25'/%3E%3Cpath d='M16 13C16 13 20 17 20 20C20 22.2 18.2 24 16 24C13.8 24 12 22.2 12 20C12 17 16 13 16 13Z' fill='%23e08967' stroke='%23e08967'/%3E%3C/svg%3E">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #2c3e50; --accent: #5d6d7e; --highlight: #8e44ad;
-            --danger: #e74c3c; --success: #27ae60; --warning: #f39c12;
-            --bg-pattern: radial-gradient(circle at 10% 20%, rgba(93,109,126,0.05) 0%, transparent 20%);
-            --card-bg: rgba(255, 255, 255, 0.95);
+            --bg-deep: #070c0a;
+            --bg-surface: #101714;
+            --border-soft: rgba(255, 255, 255, 0.05);
+            --text-main: #f3f7f5;
+            --text-muted: #8ea097;
+            --accent-sage: #9bc4b1;
+            --accent-terracotta: #d9815b;
+            --accent-emerald: #39b563;
+            --sos-pulse: #e15252;
+            --btn-active: #223029;
         }
-        * { box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { margin: 0; padding: 0; background: #f4f7f6 var(--bg-pattern) fixed; color: #333; line-height: 1.6; }
-        
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 24px 16px 80px;
+        }
+
         /* Навігація */
-        .navbar { background: var(--primary); padding: 15px; text-align: center; }
-        .navbar a { color: white; text-decoration: none; font-weight: 600; margin: 0 15px; }
-        .navbar a.active { border-bottom: 2px solid white; }
+        .nav-back {
+            margin-bottom: 20px;
+        }
 
-        .container { max-width: 1200px; margin: 30px auto; padding: 0 15px; }
-        h1, h2, h3 { color: var(--primary); }
-        .section-title { border-bottom: 3px solid var(--accent); padding-bottom: 10px; margin: 50px 0 20px; font-size: 1.8rem; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-        .card { background: var(--card-bg); padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
-        .card h3 { margin-top: 0; border-bottom: 1px dashed #ccc; padding-bottom: 10px; }
-        
-        .btn { background: var(--primary); color: white; padding: 12px; border: none; border-radius: 20px; cursor: pointer; font-weight: bold; width: 100%; margin-top: auto; transition: 0.3s; }
-        .btn:hover { background: var(--accent); }
-        
-        input[type="text"], input[type="range"] { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; }
-        
-        /* Специфічні стилі ігор */
-        .game-area { min-height: 120px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; background: #ecf0f1; border-radius: 10px; padding: 15px; margin: 15px 0; font-size: 24px; text-align: center; }
-        .hidden { display: none !important; }
-        .stroop-btn, .sequence-btn { padding: 10px 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; color: white; font-size: 14px; }
-        
-        /* Таблиця */
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px; }
-        th, td { border: 1px solid #bdc3c7; padding: 8px; text-align: left; }
-        th { background: var(--primary); color: white; }
+        .nav-back a {
+            color: var(--accent-sage);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-        /* Пам'ятка */
-        .screenshot-block { background: #111; color: #fff; padding: 20px; border-radius: 15px; text-align: center; border: 4px solid #f1c40f; }
-        .screenshot-block h3 { color: #f1c40f; }
+        .nav-back a:hover {
+            color: var(--accent-terracotta);
+        }
 
-        /* Accordion (3P) */
-        details { background: #ecf0f1; padding: 10px; border-radius: 8px; margin-bottom: 10px; cursor: pointer; }
-        summary { font-weight: bold; color: var(--primary); }
+        /* Заголовок сторінки */
+        .main-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .main-header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 0 10px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-sage) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .main-header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0 auto;
+            font-weight: 400;
+            max-width: 500px;
+            line-height: 1.5;
+        }
+
+        /* Секції */
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent-sage);
+            margin: 40px 0 15px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-soft);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Картки практик */
+        .card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-soft);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card p {
+            margin: 0 0 16px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* Кнопки під мобільні тач-таргети */
+        .btn {
+            background-color: rgba(255, 255, 255, 0.04);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            user-select: none;
+            min-height: 48px; /* Оптимальна висота під палець */
+        }
+
+        .btn:active {
+            background-color: var(--btn-active);
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-terracotta);
+            color: var(--bg-deep);
+            border: none;
+        }
+
+        .btn-primary:active {
+            background-color: #c56f4a;
+            color: var(--bg-deep);
+        }
+
+        /* АНІМОВАНЕ SOS ДИХАННЯ */
+        .breath-container {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .breath-circle {
+            width: 150px;
+            height: 150px;
+            border: 3px solid var(--sos-pulse);
+            border-radius: 50%;
+            margin: 25px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            background: rgba(225, 82, 82, 0.05);
+            box-shadow: 0 0 20px rgba(225, 82, 82, 0.15);
+            transition: transform 4s ease-in-out, background-color 4s ease-in-out, border-color 4s ease-in-out;
+        }
+
+        /* СЕНСОРНИЙ ДЕТЕКТИВ (Інтерактивний чекліст) */
+        .sensory-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sensory-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-left: 4px solid var(--accent-sage);
+            transition: all 0.2s ease;
+        }
+
+        .sensory-item.checked {
+            opacity: 0.4;
+            text-decoration: line-through;
+            border-left-color: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .sensory-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid var(--accent-sage);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .sensory-item.checked .sensory-checkbox::after {
+            content: "✓";
+            color: var(--accent-sage);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* МАК КАРТКИ */
+        .card-view {
+            perspective: 1000px;
+            width: 100%;
+            margin: 15px 0;
+        }
+
+        .card-inner {
+            background: linear-gradient(135deg, #16221c 0%, #203129 100%);
+            border: 1px solid var(--accent-sage);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--text-main);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            transform: scale(0.9);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .card-inner.show {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* СЛАЙДЕР «ЗСУВ» */
+        .slider-wrapper {
+            margin: 20px 0 10px;
+        }
+
+        .range-slider {
+            width: 100%;
+            -webkit-appearance: none;
+            background: rgba(255, 255, 255, 0.08);
+            height: 8px;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--accent-terracotta);
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: transform 0.1s;
+        }
+
+        .range-slider::-webkit-slider-thumb:active {
+            transform: scale(1.2);
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        .zsuv-result {
+            margin-top: 15px;
+            padding: 14px;
+            background: rgba(217, 129, 91, 0.08);
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px dashed var(--accent-terracotta);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* АПТЕЧКА ДЛЯ ДУМОК */
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .check-item input {
+            width: 20px;
+            height: 20px;
+            margin-top: 1px;
+            accent-color: var(--accent-sage);
+            flex-shrink: 0;
+        }
+
+        /* ПОЛЕ ВВОДУ ДЛЯ ЯКОРІВ */
+        .input-field {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-soft);
+            padding: 14px;
+            border-radius: 12px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.9rem;
+            box-sizing: border-box;
+            margin-bottom: 12px;
+            outline: none;
+        }
+
+        .input-field:focus {
+            border-color: var(--accent-sage);
+        }
+
+        .anchor-wall {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .anchor-tag {
+            background: rgba(155, 196, 177, 0.1);
+            border: 1px solid rgba(155, 196, 177, 0.3);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            animation: popIn 0.2s ease;
+        }
+
+        .anchor-tag span {
+            cursor: pointer;
+            color: var(--accent-terracotta);
+            font-weight: bold;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* СТРУП ТЕСТ */
+        .stroop-zone {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 15px;
+            border-radius: 16px;
+            border: 1px solid var(--border-soft);
+        }
+
+        .stroop-word {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .stroop-btns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        /* АКОРДЕОНИ ДЛЯ ПРАВИЛА 3П */
+        .accordion-item {
+            border: 1px solid var(--border-soft);
+            border-radius: 12px;
+            margin-bottom: 8px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.01);
+        }
+
+        .accordion-header {
+            padding: 14px 16px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .accordion-content {
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.15);
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-soft);
+            display: none;
+            line-height: 1.5;
+        }
+
+        /* ТАБЛИЦЯ "БЕЗПЕЧНИЙ ПРОСТІР" (Адаптована під мобільні) */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border-soft);
+        }
+
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 400px; /* Запобігає повному стисненню тексту */
+        }
+
+        .styled-table th, .styled-table td {
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .styled-table th {
+            background: rgba(155, 196, 177, 0.05);
+            color: var(--accent-sage);
+            font-weight: 600;
+        }
+
+        .styled-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* КРИЗОВА ПАМ'ЯТКА (Красива плашка під скріншот) */
+        .memo-box {
+            background: linear-gradient(135deg, #0e1613 0%, #17241f 100%);
+            border: 2px dashed rgba(155, 196, 177, 0.3);
+            border-radius: 20px;
+            padding: 24px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .memo-box ol {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.88rem;
+            color: var(--text-main);
+        }
+
+        .memo-box li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .memo-box li b {
+            color: var(--accent-sage);
+        }
+
+        .memo-footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        /* Адаптація під мобільні екрани */
+        @media (max-width: 600px) {
+            .main-header h1 {
+                font-size: 1.55rem;
+            }
+            .card {
+                padding: 16px;
+                border-radius: 16px;
+            }
+            .stroop-word {
+                font-size: 1.7rem;
+            }
+            .btn {
+                font-size: 0.85rem;
+                padding: 10px 16px;
+            }
+            .memo-box {
+                padding: 18px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="navbar">
-        <a href="index.html">Головна</a>
-        <a href="practice.html" class="active">Практика (Тут і зараз)</a>
-    </div>
-
     <div class="container">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h1>Інструменти самодопомоги</h1>
-            <p>Використовуйте ці вправи для відновлення фокусу, зниження тривоги та когнітивної стабілізації.</p>
+        
+        <div class="nav-back">
+            <a href="index.html">← Головна сторінка</a>
         </div>
 
-        <!-- ================= 1. ЕКСТРЕНА САМОДОПОМОГА ================= -->
+        <header class="main-header">
+            <h1>Кабінет самодопомоги</h1>
+            <p>Вправи для швидкого відновлення психологічного фокусу, зниження гострої тривоги та тілесної стабілізації у кризових ситуаціях.</p>
+        </header>
+
+        <!-- 1. ЕКСТРЕНА САМОДОПОМОГА -->
         <h2 class="section-title">1. Екстрена самодопомога</h2>
-        <div class="grid">
-            <!-- SOS Дихання -->
-            <div class="card" style="border-top: 4px solid var(--primary);">
-                <h3>?? SOS-Допомога (Дихання)</h3>
-                <p>Дихайте синхронно з колом.</p>
-                <div class="game-area" style="background: transparent;">
-                    <div id="breathe-circle" style="width: 80px; height: 80px; background: var(--primary); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 12px; font-weight: bold; transition: all 4s ease-in-out;">Старт</div>
-                </div>
-                <button class="btn" onclick="startBreathing()">Почати вправу</button>
-            </div>
 
-            <!-- 5-4-3-2-1 -->
-            <div class="card" style="border-top: 4px solid var(--warning);">
-                <h3>?? Сенсорний детектив</h3>
-                <p>Відмітьте речі навколо Вас для швидкого заземлення.</p>
-                <div>
-                    <label><input type="checkbox" onchange="checkGrounding()"> ?? 5 речей, які Ви бачите</label><br>
-                    <label><input type="checkbox" onchange="checkGrounding()"> ? 4 речі на дотик</label><br>
-                    <label><input type="checkbox" onchange="checkGrounding()"> ?? 3 звуки</label><br>
-                    <label><input type="checkbox" onchange="checkGrounding()"> ?? 2 запахи</label><br>
-                    <label><input type="checkbox" onchange="checkGrounding()"> ?? 1 смак (або ковток води)</label>
+        <!-- SOS Дихання -->
+        <div class="card">
+            <h3>🫁 SOS-Допомога (Дихання)</h3>
+            <p>Дихайте в такт колу за квадратною схемою (4-4-4-4). Це заспокоїть серцебиття та виведе нервову систему з режиму паніки.</p>
+            <div class="breath-container">
+                <button class="btn btn-primary" id="startBreathBtn">Почати вправу</button>
+                <div id="breathBox" style="display:none;">
+                    <div class="breath-circle" id="breathCircle">Запуск...</div>
+                    <p id="breathText" style="font-size:0.85rem; color:var(--accent-sage); min-height: 38px; margin: 10px 0;"></p>
+                    <button class="btn" style="margin-top:5px;" id="stopBreathBtn">Зупинити</button>
                 </div>
-                <div id="grounding-msg" class="hidden" style="color: var(--success); font-weight: bold; margin-top: 10px; text-align: center;">Ви успішно заземлилися!</div>
-            </div>
-
-            <!-- Обійми метелика -->
-            <div class="card" style="border-top: 4px solid var(--highlight);">
-                <h3>?? Обійми метелика</h3>
-                <p>Схрестіть руки на грудях. Кисті на плечах. Постукуйте по черзі: ліве плече, праве плече.</p>
-                <p><b>Когнітивне завдання:</b> Поки стукаєте, згадайте і назвіть 5 міст України у зворотному алфавітному порядку.</p>
             </div>
         </div>
 
-        <!-- ================= 2. АВТОРСЬКІ ІНСТРУМЕНТИ ================= -->
+        <!-- Сенсорний детектив -->
+        <div class="card">
+            <h3>🔍 Сенсорний детектив</h3>
+            <p>Натискайте на пункти по черзі у міру того, як знаходите предмети навколо себе. Це повертає відчуття реальності.</p>
+            <ul class="sensory-list">
+                <li class="sensory-item" onclick="toggleSensory(this)">
+                    <div class="sensory-checkbox"></div>
+                    <span>👉 Знайдіть <b>5 речей</b>, які бачите прямо зараз</span>
+                </li>
+                <li class="sensory-item" onclick="toggleSensory(this)">
+                    <div class="sensory-checkbox"></div>
+                    <span>👉 Знайдіть <b>4 речі</b> на дотик (одяг, телефон, стілець)</span>
+                </li>
+                <li class="sensory-item" onclick="toggleSensory(this)">
+                    <div class="sensory-checkbox"></div>
+                    <span>👉 Впіймайте слухом <b>3 звуки</b> у кімнаті чи на вулиці</span>
+                </li>
+                <li class="sensory-item" onclick="toggleSensory(this)">
+                    <div class="sensory-checkbox"></div>
+                    <span>👉 Відчуйте носом <b>2 запахи</b> (парфуми, кава, повітря)</span>
+                </li>
+                <li class="sensory-item" onclick="toggleSensory(this)">
+                    <div class="sensory-checkbox"></div>
+                    <span>👉 Зробіть <b>1 ковток</b> води або відчуйте смак у роті</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Обійми метелика -->
+        <div class="card">
+            <h3>🦋 Обійми метелика</h3>
+            <p>Схрестіть руки на грудях. Легко й по черзі постукуйте долонями по плечах (ліве плече, праве плече), імітуючи помах крил метелика.</p>
+            <div style="background: rgba(0,0,0,0.2); padding: 14px; border-radius: 12px; font-size: 0.85rem; border-left: 3px solid var(--accent-terracotta);">
+                🧠 <b>Когнітивне завдання:</b> Поки стукаєте по плечах у ритмі пульсу, згадайте і назвіть <b>5 міст України у зворотному алфавітному порядку</b>.
+            </div>
+        </div>
+
+
+        <!-- 2. РОБОТА ЗІ СТАНОМ -->
         <h2 class="section-title">2. Робота зі станом (Авторські інструменти)</h2>
-        <div class="grid">
-            <!-- Стежка стійкості -->
-            <div class="card" style="border-top: 4px solid var(--success);">
-                <h3>?? Стежка стійкості</h3>
-                <p>Отримайте фокус на сьогодні з авторської колоди.</p>
-                <div class="game-area" id="resilience-card" style="font-size: 16px; font-style: italic;">
-                    Натисніть кнопку...
-                </div>
-                <button class="btn" style="background: var(--success);" onclick="drawResilienceCard()">Витягнути картку</button>
-            </div>
 
-            <!-- ЗСУВ -->
-            <div class="card" style="border-top: 4px solid var(--danger);">
-                <h3>?? Детектор «ЗСУВ»</h3>
-                <p>Оцініть рівень тривоги, щоб отримати конкретну дію.</p>
-                <input type="range" id="zsuv-slider" min="1" max="10" value="5" oninput="checkZsuv()">
-                <div style="display: flex; justify-content: space-between; font-size: 12px;"><span>1 (Спокій)</span><span>10 (Паніка)</span></div>
-                <div id="zsuv-result" class="game-area" style="font-size: 14px; font-weight: bold; color: var(--danger);">Рівень 5: Випийте води дрібними ковтками.</div>
+        <!-- Стежка стійкості -->
+        <div class="card">
+            <h3>🍃 Стежка стійкості</h3>
+            <p>Отримайте миттєву метафоричну пораду чи внутрішню опору з авторської колоди Катерини.</p>
+            <div class="card-view">
+                <div id="cardInner" class="card-inner">Тут з'явиться Ваша карта...</div>
             </div>
-
-            <!-- Аптечка (Міні-тест) -->
-            <div class="card" style="border-top: 4px solid var(--accent);">
-                <h3>?? Аптечка для думок</h3>
-                <p>Дайте відповідь на 3 запитання про Ваш стан (Так/Ні):</p>
-                <div style="font-size: 14px;">
-                    1. Чи спали Ви менше 5 годин? <input type="checkbox" class="aid-check"><br>
-                    2. Чи пропускали Ви сьогодні прийом їжі? <input type="checkbox" class="aid-check"><br>
-                    3. Чи є відчуття "грудки" у горлі або стиснення у грудях? <input type="checkbox" class="aid-check"><br>
-                </div>
-                <button class="btn" style="margin-top: 15px;" onclick="checkAidKit()">Отримати рекомендацію</button>
-                <div id="aid-result" class="hidden" style="margin-top: 10px; font-size: 14px; font-weight: bold;"></div>
-            </div>
+            <button class="btn" id="pullCardBtn">Витягнути картку опори</button>
         </div>
 
-        <!-- ================= 3. КОГНІТИВНА РЕГУЛЯЦІЯ ================= -->
-        <h2 class="section-title">3. Когнітивна регуляція (Увага та пам'ять)</h2>
-        <div class="grid">
-            <!-- Минуле-Теперішнє-Майбутнє -->
-            <div class="card">
-                <h3>? Минуле / Теперішнє / Майбутнє</h3>
-                <p>Відновлення відчуття часу.</p>
-                <input type="text" placeholder="1. Що хорошого було вчора?">
-                <input type="text" placeholder="2. Що Ви робите прямо зараз?">
-                <input type="text" placeholder="3. Яку дію Ви зробите через годину?">
-                <button class="btn" onclick="alert('Чудово! Ви структурували свій час.')">Зафіксувати</button>
+        <!-- Детектор ЗСУВ -->
+        <div class="card">
+            <h3>📊 Детектор «ЗСУВ»</h3>
+            <p>Перемістіть повзунок на свій теперішній рівень тривоги, щоб підібрати чітку інструкцію.</p>
+            <div class="slider-wrapper">
+                <input type="range" min="1" max="10" value="5" class="range-slider" id="zsuvSlider">
+                <div class="slider-labels">
+                    <span>1 (Спокій)</span>
+                    <span style="font-weight:700; color:var(--accent-terracotta);" id="sliderValDisplay">Поточний рівень: 5</span>
+                    <span>10 (Паніка)</span>
+                </div>
             </div>
-
-            <!-- Мій якір -->
-            <div class="card">
-                <h3>? Мій якір (Стіна ресурсів)</h3>
-                <p>Впишіть те, що Вас тримає сьогодні (людина, тварина, річ).</p>
-                <input type="text" id="anchor-input" placeholder="Наприклад: Мій собака, ранкова кава...">
-                <button class="btn" onclick="createAnchor()">Створити якір</button>
-                <div id="anchor-display" class="hidden game-area" style="background: var(--primary); color: white; font-weight: bold; border-radius: 10px;"></div>
-            </div>
-
-            <!-- Зворотний відлік -->
-            <div class="card">
-                <h3>?? Зворотний відлік</h3>
-                <p>Сильне когнітивне навантаження блокує тривогу.</p>
-                <div class="game-area" id="countdown-task" style="font-size: 16px;">Натисніть для завдання</div>
-                <button class="btn" onclick="generateCountdown()">Отримати завдання</button>
-            </div>
+            <div class="zsuv-result" id="zsuvAdvice">Рівень 5: Випийте води дрібними ковтками, концентруючись на кожному ковтку.</div>
         </div>
 
-        <!-- ================= 4. ІГРИ-ТРЕНАЖЕРИ ================= -->
-        <h2 class="section-title">4. Тренажери уваги (Ігрова самодопомога)</h2>
-        <div class="grid">
+        <!-- Аптечка для думок -->
+        <div class="card">
+            <h3>💊 Аптечка для думок</h3>
+            <p>Позначте пункти, які ви спостерігаєте у себе прямо зараз, для точної діагностики стану:</p>
             
-            <!-- Струп тест -->
-            <div class="card" style="border-top: 4px solid var(--primary);">
-                <h3>?? Тренажер «Без Ілюзій»</h3>
-                <p>Натискайте на кнопку кольору <b>ШРИФТУ</b>, а не слова.</p>
-                <div id="stroop-word" style="font-size: 28px; font-weight: 900; text-align: center; margin: 10px 0;">ЧЕРВОНИЙ</div>
-                <div id="stroop-score" style="text-align: center; margin-bottom: 10px; font-weight: bold;">Рахунок: 0</div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
-                    <button class="stroop-btn" style="background: #e74c3c;" onclick="checkStroop('red')">Червоний</button>
-                    <button class="stroop-btn" style="background: #3498db;" onclick="checkStroop('blue')">Синій</button>
-                    <button class="stroop-btn" style="background: #2ecc71;" onclick="checkStroop('green')">Зелений</button>
-                    <button class="stroop-btn" style="background: #f1c40f; color: black;" onclick="checkStroop('yellow')">Жовтий</button>
+            <label class="check-item">
+                <input type="checkbox" id="q1">
+                <span>Я спала менше ніж 5 годин за останню добу</span>
+            </label>
+            <label class="check-item">
+                <input type="checkbox" id="q2">
+                <span>Я пропустила або забула сьогодні повноцінно поїсти</span>
+            </label>
+            <label class="check-item">
+                <input type="checkbox" id="q3">
+                <span>Я відчуваю фізичний затиск у грудях чи "грудку" в горлі</span>
+            </label>
+
+            <button class="btn" id="getAptekaBtn">Отримати рекомендацію</button>
+            <div id="aptekaResult" class="zsuv-result" style="display:none; text-align:left;"></div>
+        </div>
+
+
+        <!-- 3. КОГНІТИВНА РЕГУЛЯЦІЯ -->
+        <h2 class="section-title">3. Когнітивна регуляція</h2>
+
+        <!-- Минуле/Теперішнє/Майбутнє -->
+        <div class="card">
+            <h3>⏳ Часова безперервність</h3>
+            <p>Проговоріть уголос відповіді на три запитання, щоб зв'язати лінію часу, яка розривається під час паніки:</p>
+            <div style="font-size:0.85rem; color:var(--text-main); margin-bottom:15px; line-height:1.8;">
+                • <i>«Годину тому я ще була в... і робила...»</i> (минуле)<br>
+                • <i>«Зараз я перебуваю в безпечному місці і читаю цей текст...»</i> (теперішнє)<br>
+                • <i>«Через годину я зроблю собі чай та зателефоную...»</i> (майбутнє)
+            </div>
+            <button class="btn" onclick="alert('Часову лінію успішно зафіксовано у Вашій свідомості. Ви контролюєте хід часу.')">Зафіксувати стан</button>
+        </div>
+
+        <!-- Мій якір -->
+        <div class="card">
+            <h3>⚓ Мій якір (Стіна ресурсів)</h3>
+            <p>Впишіть те, що дарує Вам спокій (ім'я дитини, улюблену тварину, спогад) та прикріпіть на стіну:</p>
+            <input type="text" class="input-field" id="anchorInput" placeholder="Наприклад: Обійми доньки, мій пес, гарячий чай...">
+            <button class="btn" id="addAnchorBtn">Прикріпити якір</button>
+            <div class="anchor-wall" id="anchorWall"></div>
+        </div>
+
+        <!-- Зворотний відлік -->
+        <div class="card">
+            <h3>🔢 Зворотний відлік</h3>
+            <p>Математичні операції миттєво активують лобну кору, яка знижує чутливість емоційного мозку (мигдалини).</p>
+            <button class="btn" id="getCountTaskBtn">Отримати когнітивне завдання</button>
+            <div id="countTaskResult" class="zsuv-result" style="display:none;"></div>
+        </div>
+
+
+        <!-- 4. ТРЕНАЖЕРИ УВАГИ -->
+        <h2 class="section-title">4. Тренажери уваги</h2>
+
+        <!-- Тренажер Без Ілюзій -->
+        <div class="card">
+            <h3>🎨 Тренажер «Без Ілюзій»</h3>
+            <p>Швидко натискайте на кнопки, що відповідають <b>КОЛЬОРУ ШРИФТУ</b>, а не написаному слову (ефект Струпа).</p>
+            <div class="stroop-zone">
+                <div id="stroopScore" style="font-size:0.8rem; color:var(--accent-sage); margin-bottom:8px; font-weight:600;">Успішних кліків поспіль: 0</div>
+                <div class="stroop-word" id="stroopWord">ЧЕРВОНИЙ</div>
+                <div class="stroop-btns">
+                    <button class="btn" id="sBtn0">Червоний</button>
+                    <button class="btn" id="sBtn1">Синій</button>
+                    <button class="btn" id="sBtn2">Зелений</button>
+                    <button class="btn" id="sBtn3">Жовтий</button>
                 </div>
-            </div>
-
-            <!-- Контур безпеки (Пам'ять) -->
-            <div class="card" style="border-top: 4px solid var(--success);">
-                <h3>??? Контур безпеки</h3>
-                <p>Запам'ятайте послідовність символів безпеки, а потім відтворіть її.</p>
-                <div id="contour-display" class="game-area">Послідовність...</div>
-                <div id="contour-controls" class="hidden" style="display: flex; gap: 5px; justify-content: center; flex-wrap: wrap;"></div>
-                <button class="btn" id="contour-start" onclick="startContour()">Почати гру</button>
-            </div>
-
-            <!-- Білі плями (Пошук) -->
-            <div class="card" style="border-top: 4px solid var(--accent);">
-                <h3>?? Білі плями (Увага)</h3>
-                <p>Знайдіть квадрат, який відрізняється відтінком серед інших.</p>
-                <div id="spots-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin-bottom: 15px;">
-                    <!-- Згенерується JS -->
-                </div>
-                <button class="btn" onclick="startSpots()">Новий раунд</button>
-            </div>
-
-            <!-- Свідок -->
-            <div class="card" style="border-top: 4px solid var(--warning);">
-                <h3>??? Свідок (Деталізація)</h3>
-                <p>Подивіться на сцену 3 секунди і дайте відповідь на запитання.</p>
-                <div id="witness-scene" class="game-area">?? ?? ?? ?? ??</div>
-                <div id="witness-question" class="hidden" style="text-align: center; font-weight: bold; margin-bottom: 15px;"></div>
-                <button class="btn" id="witness-btn" onclick="startWitness()">Показати сцену</button>
-            </div>
-
-            <!-- Зворотний маршрут -->
-            <div class="card" style="border-top: 4px solid var(--highlight);">
-                <h3>?? Зворотний маршрут</h3>
-                <p>Натискайте цифри у строго зворотному порядку (від найбільшої до найменшої).</p>
-                <div id="route-grid" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 15px;"></div>
-                <button class="btn" onclick="startRoute()">Почати маршрут</button>
             </div>
         </div>
 
-        <!-- ================= 5. ДИТЯЧА ПСИХОЛОГІЯ ================= -->
-        <h2 class="section-title">5. Дитяча та сімейна психологія (Блок Анастасії)</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>???????? Правило «Трьох П»</h3>
-                <p>Натисніть на пункт, щоб розгорнути дію (під час тривоги):</p>
-                <details><summary>Пояснити</summary><p>Спокійним голосом скажіть дитині, що відбувається. Уникайте катастрофічних слів.</p></details>
-                <details><summary>Підтримати</summary><p>Дайте дитині улюблену іграшку, обійміть, дозвольте висловити страх.</p></details>
-                <details><summary>Поруч бути</summary><p>Фізична присутність дорослого дає базове відчуття безпеки. Сядьте на рівні очей дитини.</p></details>
-            </div>
+        <!-- Додаткові швидкі ігри -->
+        <div class="card">
+            <h3>🧩 Контур безпеки</h3>
+            <p>Спробуйте запам'ятати послідовність, а потім подумки відтворити її задом наперед.</p>
+            <button class="btn" onclick="alert('Запам\'ятайте: 🛡️ (Щит) -> 🔍 (Лупа) -> 🌿 (Листок) -> 🔑 (Ключ) -> 🏡 (Дім).\n\nА тепер назвіть їх у зворотному порядку!')">Розпочати контур</button>
+        </div>
 
-            <div class="card" style="grid-column: span 1;">
-                <h3>??? Безпечний простір</h3>
-                <table>
-                    <tr><th>Етап</th><th>Дія батьків</th></tr>
-                    <tr><td>До тривоги</td><td>Зібрати "рюкзачок безпеки" з дитиною.</td></tr>
-                    <tr><td>Під час</td><td>Дихати разом, правило "Трьох П".</td></tr>
-                    <tr><td>Після</td><td>Дати попити, похвалити за сміливість.</td></tr>
+        <div class="card">
+            <h3>⬜ Білі плями (Увага)</h3>
+            <p>Швидко знайдіть поглядом у кімнаті один невеликий предмет, який відрізняється за фактурою чи кольором від решти стіни.</p>
+            <button class="btn" onclick="alert('Чудово! Тепер знайдіть найменший предмет поруч та роздивіться його краї.')">Нова спроба</button>
+        </div>
+
+        <div class="card">
+            <h3>📸 Свідок (Деталізація)</h3>
+            <p>Сфокусуйтеся на символах нижче 3 секунди, а потім дайте відповідь на перевірочне запитання.</p>
+            <div style="font-size:1.6rem; text-align:center; margin:15px 0; letter-spacing:10px;">🌲 🌊 ☀️ ⛰️ 🪵</div>
+            <button class="btn" onclick="alert('Запитання на перевірку: Який символ стоїть між хвилею (🌊) та горами (⛰️)?\n\n(Правильна відповідь: Сонце ☀️)')">Я готовий відповісти</button>
+        </div>
+
+        <div class="card">
+            <h3>↩️ Зворотний маршрут</h3>
+            <p>Генеруйте випадкові цифри та намагайтеся проговорити їх навпаки.</p>
+            <button class="btn" id="routeBtn">Отримати три числа</button>
+            <div id="routeResult" class="zsuv-result" style="display:none; font-size:1.3rem; font-weight:700; letter-spacing:6px;"></div>
+        </div>
+
+
+        <!-- 5. ДИТЯЧА ТА СІМЕЙНА ПСИХОЛОГІЯ -->
+        <h2 class="section-title">5. Дитяча та сімейна психологія (Блок Анастасії)</h2>
+
+        <!-- Правило 3П -->
+        <div class="card">
+            <h3>🤝 Правило «Трьох П» для батьків</h3>
+            <p>Важливий алгоритм допомоги дитині під час сильних емоційних потрясінь. Натисніть, щоб розкрити дію:</p>
+            
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">1. Поруч бути <span>＋</span></div>
+                <div class="accordion-content">Опустіться на рівень дитячих очей, прийміть відкриту позу. Візьміть за руки чи ніжно пригорніть до себе. Ваше фізичне тепло — це головний заспокійливий фактор для малюка.</div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">2. Пояснити <span>＋</span></div>
+                <div class="accordion-content">Говоріть рівним, спокійним та впевненим тоном. Поясніть дитині простою мовою, що відбувається: «Зараз сирена. Це система захисту. Збройні Сили вже бережуть нас, тому ми спокійно йдемо в укриття».</div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">3. Підтримати <span>＋</span></div>
+                <div class="accordion-content">Залучіть дитину до спільних дрібних дій. Співайте разом улюблену пісню, грайте в ігри на пальцях, обов'язково дайте теплої водички (короткі ковтки стимулюють ковтальний рефлекс, який гасить паніку).</div>
+            </div>
+        </div>
+
+        <!-- Таблиця безпечного простору -->
+        <div class="card">
+            <h3>🛡️ Безпечний простір</h3>
+            <p>Дії батьків у трикутнику спокою на різних етапах надзвичайної ситуації:</p>
+            <div class="table-responsive">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Етап</th>
+                            <th>Дія батьків</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>До тривоги</b></td>
+                            <td>Зберіть ігрову валізу: улюблена іграшка, розмальовка, солодкі льодяники, блокнот.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Під час</b></td>
+                            <td>Стежте за голосом. Повністю приберіть галасливий перегляд стрічок новин поруч із дитиною.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Після відбою</b></td>
+                            <td>Дайте теплий чай, обійміть та похваліть дитину словами: «Ти була дуже сміливою сьогодні!».</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- ================= 6. ПАМ'ЯТКА (Скриншот) ================= -->
+
+        <!-- 6. ЗБЕРЕЖІТЬ ЦЮ ПАМ'ЯТКУ -->
         <h2 class="section-title">6. Збережіть цю пам'ятку</h2>
-        <div class="screenshot-block">
-            <h3>?? КРИЗОВА ПАМ'ЯТКА (Зробіть скриншот)</h3>
-            <p><b>Що робити при паніці:</b></p>
-            <p>1. Вдих (4 сек) - Затримка (4 сек) - Видих (4 сек).<br>
-               2. Назвати 5 предметів синього кольору навколо себе.<br>
-               3. Випити води, відчуваючи як вона тече по горлу.</p>
-            <hr style="border-color: #333;">
-            <p><b>Контакти психологів:</b><br>
-            Катерина (PsyDoc): +380635110069<br>
-            Анастасія: +380682417264</p>
+
+        <div class="memo-box">
+            <h3 style="color:var(--accent-terracotta); margin-top:0; font-size:1.1rem; display:flex; align-items:center; gap:8px;">📸 КРИЗОВА ПАМ'ЯТКА (Скріншот)</h3>
+            <p style="color:var(--text-main); font-size:0.88rem; font-weight:600; margin-bottom:12px;">Екстрений алгоритм дій при паніці:</p>
+            <ol>
+                <li><b>Дихання 4-4-4-4:</b> Вдих (4 сек) — Затримка (4 сек) — Видих (4 сек) — Затримка (4 сек).</li>
+                <li><b>Колір-контроль:</b> Знайдіть навколо та назвіть уголос 5 предметів синього або жовтого кольору.</li>
+                <li><b>Фізичний ковток:</b> Зробіть 3 повільних ковтки води, відчуваючи як вона рухається стравоходом.</li>
+            </ol>
+            
+            <div class="memo-footer">
+                <b style="color:var(--accent-sage); font-size:0.85rem;">📞 Номери професійної підтримки:</b>
+                <div style="margin-top:6px; font-size:0.85rem; color:var(--text-main); line-height:1.6;">
+                    • Катерина (PsyDoc): <b>+380635110069</b><br>
+                    • Анастасія: <b>+380682417264</b>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top:40px;">
+            <a href="index.html" style="color:var(--text-muted); text-decoration:underline; font-size:0.85rem;">Повернутися до головного меню</a>
         </div>
 
     </div>
 
-    <!-- СКРИПТИ -->
+    <!-- ВСІ СЕНСОРНІ, ІГРОВІ ТА КОГНІТИВНІ СКРИПТИ -->
     <script>
-        // 1. Дихання
-        let breathInt;
-        function startBreathing() {
-            const c = document.getElementById('breathe-circle');
-            clearInterval(breathInt);
+        // 1. SOS ДИХАННЯ (М'яка заспокійлива анімація)
+        const startBreathBtn = document.getElementById('startBreathBtn');
+        const stopBreathBtn = document.getElementById('stopBreathBtn');
+        const breathBox = document.getElementById('breathBox');
+        const breathCircle = document.getElementById('breathCircle');
+        const breathText = document.getElementById('breathText');
+        let breathInterval = null;
+
+        function runBreath() {
+            let step = 0;
             const cycle = () => {
-                c.style.transform = 'scale(1.8)'; c.style.background = '#2ecc71'; c.innerText = 'Вдих';
-                setTimeout(() => { c.innerText = 'Затримка'; 
-                    setTimeout(() => { c.style.transform = 'scale(1)'; c.style.background = '#3498db'; c.innerText = 'Видих';
-                        setTimeout(() => { c.innerText = 'Затримка'; }, 4000);
-                    }, 4000);
-                }, 4000);
+                if(step === 0) {
+                    breathCircle.style.transform = "scale(1.28)";
+                    breathCircle.style.backgroundColor = "rgba(225, 82, 82, 0.12)";
+                    breathCircle.style.borderColor = "var(--accent-sage)";
+                    breathCircle.innerText = "Вдих...";
+                    breathText.innerText = "Повільно вдихайте повітря носом (4 секунди)";
+                    step = 1;
+                } else if(step === 1) {
+                    breathCircle.innerText = "Затримка";
+                    breathCircle.style.backgroundColor = "rgba(155, 196, 177, 0.12)";
+                    breathText.innerText = "Спокійно утримуйте повітря в легенях (4 секунди)";
+                    step = 2;
+                } else if(step === 2) {
+                    breathCircle.style.transform = "scale(1)";
+                    breathCircle.style.backgroundColor = "rgba(225, 82, 82, 0.05)";
+                    breathCircle.style.borderColor = "var(--sos-pulse)";
+                    breathCircle.innerText = "Видих...";
+                    breathText.innerText = "Плавно й повністю видихайте через рот (4 секунди)";
+                    step = 3;
+                } else if(step === 3) {
+                    breathCircle.innerText = "Затримка";
+                    breathCircle.style.backgroundColor = "rgba(0,0,0,0.2)";
+                    breathText.innerText = "Пауза перед наступним природним вдихом (4 секунди)";
+                    step = 0;
+                }
             };
-            cycle(); breathInt = setInterval(cycle, 16000);
+            cycle();
+            breathInterval = setInterval(cycle, 4000);
         }
 
-        // 2. 5-4-3-2-1
-        function checkGrounding() {
-            const boxes = document.querySelectorAll('input[type="checkbox"]:not(.aid-check)');
-            document.getElementById('grounding-msg').classList.toggle('hidden', !Array.from(boxes).every(b => b.checked));
+        startBreathBtn.addEventListener('click', () => {
+            startBreathBtn.style.display = 'none';
+            breathBox.style.display = 'block';
+            runBreath();
+        });
+
+        stopBreathBtn.addEventListener('click', () => {
+            clearInterval(breathInterval);
+            breathBox.style.display = 'none';
+            startBreathBtn.style.display = 'inline-flex';
+            breathCircle.style.transform = "scale(1)";
+        });
+
+        // 2. СЕНСОРНИЙ ЧЕКЛІСТ
+        function toggleSensory(element) {
+            element.classList.toggle('checked');
         }
 
-        // 3. Стежка стійкості
-        const cards = [
-            "Яка невелика дія прямо зараз знаходиться у зоні Вашого контролю?",
-            "Опустіть плечі і зробіть видих. Що змінилося?",
-            "Знайдіть у кімнаті три речі, які викликають нейтральні емоції.",
-            "Думка — це не факт. Який доказ у Вас є прямо зараз?"
+        // 3. МАК КАРТКИ (Анімація появи картки)
+        const pullCardBtn = document.getElementById('pullCardBtn');
+        const cardInner = document.getElementById('cardInner');
+        const makCards = [
+            "✨ Картка «Ресурс»: Ваша стійкість схожа на коріння старого дерева — його не видно під землею, але воно міцно тримає весь стовбур.",
+            "✨ Картка «Опора»: Згадайте складну подію з минулого, з якої ви вийшли переможцем. Ця сила нікуди не зникла — вона досі з вами.",
+            "✨ Картка «Світло»: Навіть найменший вогник здатний розвіяти велику темряву. Ваша турбота про себе зараз — це і є це світло.",
+            "✨ Картка «Тіло»: Призупиніться на мить. Просто зараз вашим єдиним завданням є зробити один спокійний видих і розслабити плечі.",
+            "✨ Картка «Метелик»: Маленькі, але свідомі кроки у бік психологічної безпеки мають величезний накопичувальний ефект."
         ];
-        function drawResilienceCard() {
-            document.getElementById('resilience-card').innerText = cards[Math.floor(Math.random() * cards.length)];
-        }
 
-        // 4. ЗСУВ
-        function checkZsuv() {
-            const v = document.getElementById('zsuv-slider').value;
-            let res = "Ви в безпечній зоні.";
-            if(v > 3 && v <= 7) res = "Зробіть зсув фокусу: знайдіть 5 речей зеленого кольору.";
-            if(v > 7) res = "Виконайте 'Обійми метелика' або почніть дихати за квадратом (віджет вище).";
-            document.getElementById('zsuv-result').innerText = `Рівень ${v}: ${res}`;
-        }
-
-        // 5. Аптечка думок
-        function checkAidKit() {
-            const checks = document.querySelectorAll('.aid-check');
-            const yesCount = Array.from(checks).filter(c => c.checked).length;
-            const res = document.getElementById('aid-result');
-            res.classList.remove('hidden');
-            if(yesCount === 0) { res.style.color = 'green'; res.innerText = "Ваш ресурс у нормі. Підтримуйте його."; }
-            else if(yesCount <= 2) { res.style.color = 'orange'; res.innerText = "Увага! Закрийте базові потреби: поїжте і поспіть."; }
-            else { res.style.color = 'red'; res.innerText = "Високий рівень виснаження. Зверніться до техніки дихання негайно."; }
-        }
-
-        // 6. Мій якір
-        function createAnchor() {
-            const val = document.getElementById('anchor-input').value;
-            if(!val) return;
-            const d = document.getElementById('anchor-display');
-            d.innerText = `? ${val}`; d.classList.remove('hidden');
-        }
-
-        // 7. Зворотний відлік
-        function generateCountdown() {
-            const tasks = ["Відніміть від 100 по 7", "Назвіть 5 міст на букву К", "Назвіть 10 тварин в алфавітному порядку"];
-            document.getElementById('countdown-task').innerText = tasks[Math.floor(Math.random() * tasks.length)];
-        }
-
-        // 8. Тренажер Без Ілюзій (Струп)
-        const stroopColors = [{t:'ЧЕРВОНИЙ',v:'red',c:'#e74c3c'},{t:'СИНІЙ',v:'blue',c:'#3498db'},{t:'ЗЕЛЕНИЙ',v:'green',c:'#2ecc71'},{t:'ЖОВТИЙ',v:'yellow',c:'#f1c40f'}];
-        let currStroop = 'blue', sScore = 0;
-        function checkStroop(ans) {
-            sScore = ans === currStroop ? sScore + 1 : 0;
-            document.getElementById('stroop-score').innerText = `Рахунок: ${sScore}`;
-            const textC = stroopColors[Math.floor(Math.random()*4)], colorC = stroopColors[Math.floor(Math.random()*4)];
-            const w = document.getElementById('stroop-word');
-            w.innerText = textC.t; w.style.color = colorC.c; currStroop = colorC.v;
-        }
-
-        // 9. Контур безпеки
-        const sequence = ['??','?','?','??'];
-        let playerSeq = [], step = 0;
-        function startContour() {
-            const d = document.getElementById('contour-display');
-            const c = document.getElementById('contour-controls');
-            d.innerText = sequence.join('  '); c.classList.add('hidden');
+        pullCardBtn.addEventListener('click', () => {
+            cardInner.classList.remove('show');
             setTimeout(() => {
-                d.innerText = "Відтворіть послідовність!";
-                c.innerHTML = sequence.map(s => `<button class="sequence-btn" style="background:#2c3e50;" onclick="contourClick('${s}')">${s}</button>`).sort(() => Math.random() - 0.5).join('');
-                c.classList.remove('hidden'); playerSeq = [];
-            }, 3000);
+                const randomCard = makCards[Math.floor(Math.random() * makCards.length)];
+                cardInner.innerText = randomCard;
+                cardInner.classList.add('show');
+            }, 200);
+        });
+
+        // 4. ДЕТЕКТОР «ЗСУВ»
+        const zsuvSlider = document.getElementById('zsuvSlider');
+        const sliderValDisplay = document.getElementById('sliderValDisplay');
+        const zsuvAdvice = document.getElementById('zsuvAdvice');
+
+        const advices = {
+            1: "Повний внутрішній штиль. Чудовий момент для створення нових ідей та заземлення корисних звичок.",
+            2: "Стабільний гарний стан. Мозок працює чітко, ви відчуваєте безпеку.",
+            3: "З'явилося мінімальне фонове занепокоєння. Спробуйте пройтися кімнатою та попити води.",
+            4: "Відчувається фізична напруга у м'язах. Повільно розправте плечі й зробіть 3 глибокі вдихи.",
+            5: "Рівень тривоги відчутний. Повільно випийте води дрібними ковтками, відчуваючи її рух.",
+            6: "Тривожні думки забирають фокус. Обійміть себе руками та сфокусуйте погляд на одній точці.",
+            7: "Стан сильного стресу. Зробіть вправу 'Обійми метелика' щонайменше 2 хвилини без зупинки.",
+            8: "Сильна тілесна реакція на паніку. Обов'язково вмийте обличчя прохолодною водою, щоб скинути напругу.",
+            9: "Гострий страх на межі паніки. Почніть голосно рахувати предмети в кімнаті або скористайтеся нашою когнітивною грою.",
+            10: "Критична тривога (Паніка). Терміново перейдіть до вправи 'SOS-Допомога (Дихання)' на початку сторінки!"
+        };
+
+        zsuvSlider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            sliderValDisplay.innerText = `Поточний рівень: ${val}`;
+            zsuvAdvice.innerText = `Рівень ${val}: ${advices[val]}`;
+        });
+
+        // 5. АПТЕЧКА ДЛЯ ДУМОК
+        document.getElementById('getAptekaBtn').addEventListener('click', () => {
+            const q1 = document.getElementById('q1').checked;
+            const q2 = document.getElementById('q2').checked;
+            const q3 = document.getElementById('q3').checked;
+            const resBox = document.getElementById('aptekaResult');
+            
+            let text = "<b>🩺 Наші рекомендації для Вас:</b><br><br>";
+            if (!q1 && !q2 && !q3) {
+                text += "Ваші базові тілесні потреби у повному порядку. Оскільки тривога має психологічний характер, спробуйте виконати кілька тренажерів уваги нижче.";
+            } else {
+                if (q1) text += "• <b>Брак сну:</b> Ваш мозок виснажений. Будь-які проблеми зараз здаються у 3 рази більшими, ніж є насправді. Відкладіть складні роздуми до моменту, коли зможете поспати хоча б 1.5 години.<br><br>";
+                if (q2) text += "• <b>Дефіцит енергії:</b> Коли рівень глюкози різко падає, організм імітує панічну атаку. Негайно з'їжте щось солодке, шматочок хліба або випийте теплий солодкий чай.<br><br>";
+                if (q3) text += "• <b>Тілесний блок:</b> Емоції застрягли у м'язах. Спробуйте кілька разів навмисно сильно позіхнути, широко розкриваючи рота, або помасажуйте щелепні суглоби пальцями.";
+            }
+            resBox.innerHTML = text;
+            resBox.style.display = 'block';
+        });
+
+        // 6. СТІНА РЕСУРСІВ (ЯКОРІ)
+        document.getElementById('addAnchorBtn').addEventListener('click', () => {
+            const input = document.getElementById('anchorInput');
+            const wall = document.getElementById('anchorWall');
+            if(input.value.trim() !== "") {
+                const tag = document.createElement('div');
+                tag.className = 'anchor-tag';
+                tag.innerHTML = `⚓ ${input.value} <span onclick="this.parentElement.remove()">×</span>`;
+                wall.appendChild(tag);
+                input.value = "";
+            }
+        });
+
+        // 7. ЗВОРОТНИЙ ВІДЛІК
+        document.getElementById('getCountTaskBtn').addEventListener('click', () => {
+            const tasks = [
+                "Рахуйте від 100 у зворотний бік, віднімаючи по 7 (100, 93, 86, 79...)",
+                "Порахуйте всі літери 'А' у першому абзаці блоку 'Правило Трьох П'.",
+                "Згадайте та назвіть усі пори року та місяці у зворотному порядку, починаючи з грудня.",
+                "Промовте алфавіт від Я до А у швидкому темпі."
+            ];
+            const randomTask = tasks[Math.floor(Math.random() * tasks.length)];
+            const res = document.getElementById('countTaskResult');
+            res.innerText = randomTask;
+            res.style.display = 'block';
+        });
+
+        // 8. ГРА «БЕЗ ІЛЮЗІЙ» (STROOP EFFECT)
+        const stroopWord = document.getElementById('stroopWord');
+        const stroopScore = document.getElementById('stroopScore');
+        const words = ["ЧЕРВОНИЙ", "СИНІЙ", "ЗЕЛЕНИЙ", "ЖОВТИЙ"];
+        const colors = ["#e15252", "#3b82f6", "#10b981", "#eab308"];
+        
+        let currentTargetColorIdx = 0;
+        let score = 0;
+
+        function nextStroopRound() {
+            const randomWordIdx = Math.floor(Math.random() * words.length);
+            currentTargetColorIdx = Math.floor(Math.random() * colors.length);
+            
+            stroopWord.innerText = words[randomWordIdx];
+            stroopWord.style.color = colors[currentTargetColorIdx];
         }
-        function contourClick(s) {
-            playerSeq.push(s);
-            if(playerSeq[playerSeq.length-1] !== sequence[playerSeq.length-1]) {
-                alert("Помилка! Спробуйте ще раз."); startContour();
-            } else if(playerSeq.length === sequence.length) {
-                document.getElementById('contour-display').innerText = "? Чудова пам'ять!";
-                document.getElementById('contour-controls').classList.add('hidden');
+
+        function setupStroopButtons() {
+            for(let i = 0; i < 4; i++) {
+                document.getElementById(`sBtn${i}`).addEventListener('click', () => {
+                    if(i === currentTargetColorIdx) {
+                        score++;
+                        stroopScore.innerText = `Успішних кліків поспіль: ${score}`;
+                    } else {
+                        score = 0;
+                        stroopScore.innerText = `Помилка! Рахунок скинуто до 0`;
+                    }
+                    nextStroopRound();
+                });
             }
         }
 
-        // 10. Білі плями
-        function startSpots() {
-            const grid = document.getElementById('spots-grid');
-            grid.innerHTML = '';
-            const diffIndex = Math.floor(Math.random() * 16);
-            for(let i=0; i<16; i++) {
-                const box = document.createElement('div');
-                box.style.height = '40px'; box.style.background = '#34495e'; box.style.cursor = 'pointer'; box.style.borderRadius = '5px';
-                if(i === diffIndex) { box.style.opacity = '0.7'; box.onclick = () => { box.style.background = '#2ecc71'; setTimeout(startSpots, 1000); }; }
-                else { box.onclick = () => box.style.background = '#e74c3c'; }
-                grid.appendChild(box);
+        setupStroopButtons();
+        nextStroopRound();
+
+        // 9. ЗВОРОТНИЙ МАРШРУТ
+        document.getElementById('routeBtn').addEventListener('click', () => {
+            const num1 = Math.floor(Math.random() * 90) + 10;
+            const num2 = Math.floor(Math.random() * 90) + 10;
+            const num3 = Math.floor(Math.random() * 90) + 10;
+            const box = document.getElementById('routeResult');
+            box.innerText = `${num1}  ${num2}  ${num3}`;
+            box.style.display = 'block';
+        });
+
+        // 10. АКОРДЕОНИ
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('span');
+            if(content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.innerText = '＋';
+            } else {
+                content.style.display = 'block';
+                icon.innerText = '－';
             }
-        }
-        startSpots();
-
-        // 11. Свідок
-        const wScenes = [{s:"?? ?? ?? ?? ??", q:"Яка тварина була на картинці?", a:"Кіт"}, {s:"?? ? ?? ?? ???", q:"Що лежало біля кави?", a:"Окуляри"}];
-        function startWitness() {
-            const sc = wScenes[Math.floor(Math.random()*wScenes.length)];
-            const d = document.getElementById('witness-scene');
-            const q = document.getElementById('witness-question');
-            d.innerText = sc.s; d.classList.remove('hidden'); q.classList.add('hidden');
-            setTimeout(() => {
-                d.classList.add('hidden'); q.innerText = sc.q + " (Відповідь: " + sc.a + ")"; q.classList.remove('hidden');
-            }, 3000);
-        }
-
-        // 12. Зворотний маршрут
-        let routeExpected = 10;
-        function startRoute() {
-            routeExpected = 10;
-            const g = document.getElementById('route-grid'); g.innerHTML = '';
-            const nums = [1,2,3,4,5,6,7,8,9,10].sort(() => Math.random() - 0.5);
-            nums.forEach(n => {
-                const b = document.createElement('button');
-                b.className = 'sequence-btn'; b.style.background = '#8e44ad'; b.innerText = n;
-                b.onclick = () => {
-                    if(n === routeExpected) { b.style.visibility = 'hidden'; routeExpected--; if(routeExpected === 0) alert('Супер!'); }
-                    else { b.style.background = 'red'; setTimeout(()=>b.style.background='#8e44ad', 500); }
-                };
-                g.appendChild(b);
-            });
         }
     </script>
 </body>
