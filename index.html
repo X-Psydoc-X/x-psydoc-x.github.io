@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Психологічна допомога | Катерина Тарасова & Анастасія Кульчицька</title>
-    <link href="[https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap](https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap)" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #111815;
@@ -23,6 +23,7 @@
             overflow-x: hidden;
             line-height: 1.7;
         }
+        /* Оновлений декор, який більше не заважає клікам */
         .glow-bg {
             position: absolute;
             width: 500px;
@@ -31,6 +32,7 @@
             top: -150px;
             right: -100px;
             z-index: -1;
+            pointer-events: none; /* Робить шар повністю прозорим для кліків */
             animation: floatGlow 15s infinite alternate ease-in-out;
         }
         @keyframes floatGlow {
@@ -147,14 +149,14 @@
             color: #cbd5e1;
         }
         .contacts-list a {
-            color: var(--text);
+            color: var(--accent-glow);
             text-decoration: none;
-            border-bottom: 1px dashed rgba(255,255,255,0.3);
+            border-bottom: 1px dashed rgba(143,191,167,0.4);
             transition: all 0.3s;
         }
         .contacts-list a:hover {
-            color: var(--accent-glow);
-            border-bottom-color: var(--accent-glow);
+            color: var(--accent-warm);
+            border-bottom-color: var(--accent-warm);
         }
         .action-block {
             border-top: 1px solid var(--border);
@@ -222,9 +224,9 @@
                     <ul class="contacts-list">
                         <li>📞 <b>Тел:</b> <a href="tel:+380635110069">+380 (63) 511-00-69</a> / <a href="tel:+380977836554">+380 (97) 783-65-54</a></li>
                         <li>✉️ <b>Email:</b> <a href="mailto:x.psydoc.x@gmail.com">x.psydoc.x@gmail.com</a></li>
-                        <li>👥 <b>Facebook:</b> <a href="[https://www.facebook.com/ekaterina.tarasova.14766](https://www.facebook.com/ekaterina.tarasova.14766)" target="_blank">Профіль FB</a></li>
-                        <li>📸 <b>Instagram / Threads:</b> <a href="[https://www.instagram.com/x.psydoc.x](https://www.instagram.com/x.psydoc.x)" target="_blank">@x.psydoc.x</a></li>
-                        <li>💬 <b>Telegram:</b> <a href="[https://t.me/x_psydoc_x](https://t.me/x_psydoc_x)" target="_blank">@x_psydoc_x</a></li>
+                        <li>👥 <b>Facebook:</b> <a href="https://www.facebook.com/ekaterina.tarasova.14766" target="_blank">Профіль FB</a></li>
+                        <li>📸 <b>Instagram / Threads:</b> <a href="https://www.instagram.com/x.psydoc.x" target="_blank">@x.psydoc.x</a></li>
+                        <li>💬 <b>Telegram:</b> <a href="https://t.me/x_psydoc_x" target="_blank">@x_psydoc_x</a></li>
                         <li>📱 <b>Viber / Signal:</b> +380977836554</li>
                         <li>💬 <b>WhatsApp:</b> @x.psydoc.x</li>
                         <li>🛡️ <b>Milchat ID:</b> d4b8ca92</li>
@@ -245,9 +247,9 @@
                 <div>
                     <ul class="contacts-list">
                         <li>📞 <b>Тел:</b> <a href="tel:+380682417264">+380 (68) 241-72-64</a></li>
-                        <li>👥 <b>Facebook:</b> <a href="[https://www.facebook.com/profile.php?id=100021855495855](https://www.facebook.com/profile.php?id=100021855495855)" target="_blank">Профіль FB</a></li>
-                        <li>📸 <b>Instagram:</b> <a href="[https://www.instagram.com/anactacijka](https://www.instagram.com/anactacijka)" target="_blank">@anactacijka</a></li>
-                        <li>💬 <b>Telegram:</b> <a href="[https://t.me/anactacijka](https://t.me/anactacijka)" target="_blank">@anactacijka</a></li>
+                        <li>👥 <b>Facebook:</b> <a href="https://www.facebook.com/profile.php?id=100021855495855" target="_blank">Профіль FB</a></li>
+                        <li>📸 <b>Instagram:</b> <a href="https://www.instagram.com/anactacijka" target="_blank">@anactacijka</a></li>
+                        <li>💬 <b>Telegram:</b> <a href="https://t.me/anactacijka" target="_blank">@anactacijka</a></li>
                         <li>📱 <b>Viber:</b> +380682417264</li>
                     </ul>
                 </div>
@@ -258,7 +260,7 @@
         <section class="action-block">
             <h3>Навчальний курс «Від фронту до дому»</h3>
             <p style="color: #9ca3af; max-width: 600px; margin: 10px auto 20px;">Програма психологічної адаптації, підтримки та розуміння для тих, хто повертається до цивільного життя, та їхніх близьких.</p>
-            <a href="[https://forms.gle/7rKhADH2onNPycK9A](https://forms.gle/7rKhADH2onNPycK9A)" class="btn" target="_blank">Заповнити форму для запису</a>
+            <a href="https://forms.gle/7rKhADH2onNPycK9A" class="btn" target="_blank">Заповнити форму для запису</a>
             
             <p style="margin-top: 30px; font-size: 0.95rem; color: #6b7280;">
                 🤝 <b>Співпраця:</b> З питань партнерства та спільних проєктів пишіть Катерині у месенджери або на пошту <a href="mailto:x.psydoc.x@gmail.com" style="color: var(--accent-warm); text-decoration: none;">x.psydoc.x@gmail.com</a>
