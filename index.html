@@ -221,6 +221,7 @@
             color: #cbd5e1;
             display: flex;
             align-items: baseline;
+            flex-wrap: wrap; /* Дозволяє контактам красиво переноситися на мобільних */
         }
 
         .contacts-list span.icon {
@@ -234,6 +235,7 @@
             text-decoration: none;
             border-bottom: 1px dashed rgba(143,191,167,0.3);
             transition: all 0.3s;
+            word-break: break-word; /* Безпечний перенос довгих посилань та пошт */
         }
 
         .contacts-list a:hover {
@@ -274,10 +276,73 @@
             background-color: #fca5a5;
         }
 
+        /* АДАПТИВНІСТЬ ДЛЯ ПЛАНШЕТІВ ТА СЕРЕДНІХ ЕКРАНІВ */
         @media (max-width: 900px) {
-            .team-grid { grid-template-columns: 1fr; }
-            header h1 { font-size: 2.2rem; }
-            .profile-card { padding: 30px; }
+            .team-grid { 
+                grid-template-columns: 1fr; 
+                gap: 25px; 
+            }
+            header { 
+                padding: 40px 15px 25px; 
+            }
+            header h1 { 
+                font-size: 2.2rem; 
+            }
+            .profile-card { 
+                padding: 30px; 
+            }
+        }
+
+        /* ТОНКЕ НАЛАШТУВАННЯ ДЛЯ СМАРТФОНІВ (ЕКРАНИ ДО 480PX) */
+        @media (max-width: 480px) {
+            header h1 { 
+                font-size: 1.8rem; 
+            }
+            .tandem-intro { 
+                padding: 20px 15px; 
+                font-size: 0.95rem; 
+            }
+            .breathing-section { 
+                padding: 25px 15px; 
+            }
+            .profile-card { 
+                padding: 22px 18px; 
+                border-radius: 20px; 
+            }
+            .profile-card h2 { 
+                font-size: 1.5rem; 
+            }
+            .role-tag { 
+                font-size: 0.75rem; 
+                margin-bottom: 15px; 
+                letter-spacing: 1px; 
+            }
+            .manifesto { 
+                padding-left: 15px; 
+                margin: 20px 0; 
+                font-size: 0.92rem; 
+            }
+            .info-block h4 { 
+                font-size: 0.85rem; 
+            }
+            .info-block p { 
+                font-size: 0.9rem; 
+            }
+            .contacts-list { 
+                margin-top: 25px; 
+                padding-top: 20px; 
+            }
+            .contacts-list li { 
+                font-size: 0.88rem; 
+                margin-bottom: 14px; 
+            }
+            .btn { 
+                display: block; 
+                width: 100%; 
+                box-sizing: border-box; 
+                padding: 15px 20px; 
+                font-size: 0.95rem; 
+            }
         }
     </style>
 </head>
@@ -288,7 +353,7 @@
     <header>
         <h1>Простір Ментальної Стійкості</h1>
         <div class="tandem-intro">
-            Ми — професійний тандем психологинь, чия співпраця базується на спільних цінностях, повазі до людської гідності та відданості справі. Ми об'єднали знання та практичний досвід, щоб забезпечити кваліфіковану психологічну допомогу, кризове консультування та психоемоційну підтримку тим, хто цього потребує.
+            Ми — професійний тандем психологинь, чия співпраця базується на спільних цінностях, повазі до людської гідності та відданості справі. Ми об'єднали знання та практичний досвід, щоб забезпечити кваліфіковану психологічную допомогу, кризове консультування та психоемоційну підтримку тим, хто цього потребує.
         </div>
     </header>
 
@@ -305,7 +370,6 @@
             <!-- КАТЕРИНА ТАРАСОВА -->
             <div class="profile-card">
                 <div>
-                    <!-- Оновлений головний статус над ім'ям -->
                     <span class="role-tag">Кризовий психолог | ТВО Військового психолога (демобілізована)</span>
                     <h2>Катерина Тарасова</h2>
                     
@@ -318,7 +382,6 @@
                         <p style="font-weight: 500; color: var(--accent-warm);">📖 «Ключ до клієнта. Інтегрований інструментарій для психологів та психотерапевтів»</p>
                     </div>
 
-                    <!-- Оновлений детальний статус "Про мене" -->
                     <div class="info-block">
                         <h4>Про мене</h4>
                         <p>Старший бойовий медик, ТВО військового психолога (демобілізована), КПТ-консультантка, психосоціальна консультантка ТЧХУ, тренерка соціальних та громадських проєктів. Менеджерка TRiM та фасилітаторка груп підтримки.</p>
