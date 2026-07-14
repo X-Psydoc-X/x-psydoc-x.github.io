@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практика та Самодопомога | PsyDoc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50; --accent: #5d6d7e; --highlight: #8e44ad;
+            --danger: #e74c3c; --success: #27ae60; --warning: #f39c12;
+            --bg-pattern: radial-gradient(circle at 10% 20%, rgba(93,109,126,0.05) 0%, transparent 20%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+        }
+        * { box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { margin: 0; padding: 0; background: #f4f7f6 var(--bg-pattern) fixed; color: #333; line-height: 1.6; }
+        
+        /* Навігація */
+        .navbar { background: var(--primary); padding: 15px; text-align: center; }
+        .navbar a { color: white; text-decoration: none; font-weight: 600; margin: 0 15px; }
+        .navbar a.active { border-bottom: 2px solid white; }
+
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 15px; }
+        h1, h2, h3 { color: var(--primary); }
+        .section-title { border-bottom: 3px solid var(--accent); padding-bottom: 10px; margin: 50px 0 20px; font-size: 1.8rem; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+        .card { background: var(--card-bg); padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+        .card h3 { margin-top: 0; border-bottom: 1px dashed #ccc; padding-bottom: 10px; }
+        
+        .btn { background: var(--primary); color: white; padding: 12px; border: none; border-radius: 20px; cursor: pointer; font-weight: bold; width: 100%; margin-top: auto; transition: 0.3s; }
+        .btn:hover { background: var(--accent); }
+        
+        input[type="text"], input[type="range"] { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; }
+        
+        /* Специфічні стилі ігор */
+        .game-area { min-height: 120px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; background: #ecf0f1; border-radius: 10px; padding: 15px; margin: 15px 0; font-size: 24px; text-align: center; }
+        .hidden { display: none !important; }
+        .stroop-btn, .sequence-btn { padding: 10px 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; color: white; font-size: 14px; }
+        
+        /* Таблиця */
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px; }
+        th, td { border: 1px solid #bdc3c7; padding: 8px; text-align: left; }
+        th { background: var(--primary); color: white; }
+
+        /* Пам'ятка */
+        .screenshot-block { background: #111; color: #fff; padding: 20px; border-radius: 15px; text-align: center; border: 4px solid #f1c40f; }
+        .screenshot-block h3 { color: #f1c40f; }
+
+        /* Accordion (3P) */
+        details { background: #ecf0f1; padding: 10px; border-radius: 8px; margin-bottom: 10px; cursor: pointer; }
+        summary { font-weight: bold; color: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Головна</a>
+        <a href="practice.html" class="active">Практика (Тут і зараз)</a>
+    </div>
+
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1>Інструменти самодопомоги</h1>
+            <p>Використовуйте ці вправи для відновлення фокусу, зниження тривоги та когнітивної стабілізації.</p>
+        </div>
+
+        <!-- ================= 1. ЕКСТРЕНА САМОДОПОМОГА ================= -->
+        <h2 class="section-title">1. Екстрена самодопомога</h2>
+        <div class="grid">
+            <!-- SOS Дихання -->
+            <div class="card" style="border-top: 4px solid var(--primary);">
+                <h3>?? SOS-Допомога (Дихання)</h3>
+                <p>Дихайте синхронно з колом.</p>
+                <div class="game-area" style="background: transparent;">
+                    <div id="breathe-circle" style="width: 80px; height: 80px; background: var(--primary); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 12px; font-weight: bold; transition: all 4s ease-in-out;">Старт</div>
+                </div>
+                <button class="btn" onclick="startBreathing()">Почати вправу</button>
+            </div>
+
+            <!-- 5-4-3-2-1 -->
+            <div class="card" style="border-top: 4px solid var(--warning);">
+                <h3>?? Сенсорний детектив</h3>
+                <p>Відмітьте речі навколо Вас для швидкого заземлення.</p>
+                <div>
+                    <label><input type="checkbox" onchange="checkGrounding()"> ?? 5 речей, які Ви бачите</label><br>
+                    <label><input type="checkbox" onchange="checkGrounding()"> ? 4 речі на дотик</label><br>
+                    <label><input type="checkbox" onchange="checkGrounding()"> ?? 3 звуки</label><br>
+                    <label><input type="checkbox" onchange="checkGrounding()"> ?? 2 запахи</label><br>
+                    <label><input type="checkbox" onchange="checkGrounding()"> ?? 1 смак (або ковток води)</label>
+                </div>
+                <div id="grounding-msg" class="hidden" style="color: var(--success); font-weight: bold; margin-top: 10px; text-align: center;">Ви успішно заземлилися!</div>
+            </div>
+
+            <!-- Обійми метелика -->
+            <div class="card" style="border-top: 4px solid var(--highlight);">
+                <h3>?? Обійми метелика</h3>
+                <p>Схрестіть руки на грудях. Кисті на плечах. Постукуйте по черзі: ліве плече, праве плече.</p>
+                <p><b>Когнітивне завдання:</b> Поки стукаєте, згадайте і назвіть 5 міст України у зворотному алфавітному порядку.</p>
+            </div>
+        </div>
+
+        <!-- ================= 2. АВТОРСЬКІ ІНСТРУМЕНТИ ================= -->
+        <h2 class="section-title">2. Робота зі станом (Авторські інструменти)</h2>
+        <div class="grid">
+            <!-- Стежка стійкості -->
+            <div class="card" style="border-top: 4px solid var(--success);">
+                <h3>?? Стежка стійкості</h3>
+                <p>Отримайте фокус на сьогодні з авторської колоди.</p>
+                <div class="game-area" id="resilience-card" style="font-size: 16px; font-style: italic;">
+                    Натисніть кнопку...
+                </div>
+                <button class="btn" style="background: var(--success);" onclick="drawResilienceCard()">Витягнути картку</button>
+            </div>
+
+            <!-- ЗСУВ -->
+            <div class="card" style="border-top: 4px solid var(--danger);">
+                <h3>?? Детектор «ЗСУВ»</h3>
+                <p>Оцініть рівень тривоги, щоб отримати конкретну дію.</p>
+                <input type="range" id="zsuv-slider" min="1" max="10" value="5" oninput="checkZsuv()">
+                <div style="display: flex; justify-content: space-between; font-size: 12px;"><span>1 (Спокій)</span><span>10 (Паніка)</span></div>
+                <div id="zsuv-result" class="game-area" style="font-size: 14px; font-weight: bold; color: var(--danger);">Рівень 5: Випийте води дрібними ковтками.</div>
+            </div>
+
+            <!-- Аптечка (Міні-тест) -->
+            <div class="card" style="border-top: 4px solid var(--accent);">
+                <h3>?? Аптечка для думок</h3>
+                <p>Дайте відповідь на 3 запитання про Ваш стан (Так/Ні):</p>
+                <div style="font-size: 14px;">
+                    1. Чи спали Ви менше 5 годин? <input type="checkbox" class="aid-check"><br>
+                    2. Чи пропускали Ви сьогодні прийом їжі? <input type="checkbox" class="aid-check"><br>
+                    3. Чи є відчуття "грудки" у горлі або стиснення у грудях? <input type="checkbox" class="aid-check"><br>
+                </div>
+                <button class="btn" style="margin-top: 15px;" onclick="checkAidKit()">Отримати рекомендацію</button>
+                <div id="aid-result" class="hidden" style="margin-top: 10px; font-size: 14px; font-weight: bold;"></div>
+            </div>
+        </div>
+
+        <!-- ================= 3. КОГНІТИВНА РЕГУЛЯЦІЯ ================= -->
+        <h2 class="section-title">3. Когнітивна регуляція (Увага та пам'ять)</h2>
+        <div class="grid">
+            <!-- Минуле-Теперішнє-Майбутнє -->
+            <div class="card">
+                <h3>? Минуле / Теперішнє / Майбутнє</h3>
+                <p>Відновлення відчуття часу.</p>
+                <input type="text" placeholder="1. Що хорошого було вчора?">
+                <input type="text" placeholder="2. Що Ви робите прямо зараз?">
+                <input type="text" placeholder="3. Яку дію Ви зробите через годину?">
+                <button class="btn" onclick="alert('Чудово! Ви структурували свій час.')">Зафіксувати</button>
+            </div>
+
+            <!-- Мій якір -->
+            <div class="card">
+                <h3>? Мій якір (Стіна ресурсів)</h3>
+                <p>Впишіть те, що Вас тримає сьогодні (людина, тварина, річ).</p>
+                <input type="text" id="anchor-input" placeholder="Наприклад: Мій собака, ранкова кава...">
+                <button class="btn" onclick="createAnchor()">Створити якір</button>
+                <div id="anchor-display" class="hidden game-area" style="background: var(--primary); color: white; font-weight: bold; border-radius: 10px;"></div>
+            </div>
+
+            <!-- Зворотний відлік -->
+            <div class="card">
+                <h3>?? Зворотний відлік</h3>
+                <p>Сильне когнітивне навантаження блокує тривогу.</p>
+                <div class="game-area" id="countdown-task" style="font-size: 16px;">Натисніть для завдання</div>
+                <button class="btn" onclick="generateCountdown()">Отримати завдання</button>
+            </div>
+        </div>
+
+        <!-- ================= 4. ІГРИ-ТРЕНАЖЕРИ ================= -->
+        <h2 class="section-title">4. Тренажери уваги (Ігрова самодопомога)</h2>
+        <div class="grid">
+            
+            <!-- Струп тест -->
+            <div class="card" style="border-top: 4px solid var(--primary);">
+                <h3>?? Тренажер «Без Ілюзій»</h3>
+                <p>Натискайте на кнопку кольору <b>ШРИФТУ</b>, а не слова.</p>
+                <div id="stroop-word" style="font-size: 28px; font-weight: 900; text-align: center; margin: 10px 0;">ЧЕРВОНИЙ</div>
+                <div id="stroop-score" style="text-align: center; margin-bottom: 10px; font-weight: bold;">Рахунок: 0</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                    <button class="stroop-btn" style="background: #e74c3c;" onclick="checkStroop('red')">Червоний</button>
+                    <button class="stroop-btn" style="background: #3498db;" onclick="checkStroop('blue')">Синій</button>
+                    <button class="stroop-btn" style="background: #2ecc71;" onclick="checkStroop('green')">Зелений</button>
+                    <button class="stroop-btn" style="background: #f1c40f; color: black;" onclick="checkStroop('yellow')">Жовтий</button>
+                </div>
+            </div>
+
+            <!-- Контур безпеки (Пам'ять) -->
+            <div class="card" style="border-top: 4px solid var(--success);">
+                <h3>??? Контур безпеки</h3>
+                <p>Запам'ятайте послідовність символів безпеки, а потім відтворіть її.</p>
+                <div id="contour-display" class="game-area">Послідовність...</div>
+                <div id="contour-controls" class="hidden" style="display: flex; gap: 5px; justify-content: center; flex-wrap: wrap;"></div>
+                <button class="btn" id="contour-start" onclick="startContour()">Почати гру</button>
+            </div>
+
+            <!-- Білі плями (Пошук) -->
+            <div class="card" style="border-top: 4px solid var(--accent);">
+                <h3>?? Білі плями (Увага)</h3>
+                <p>Знайдіть квадрат, який відрізняється відтінком серед інших.</p>
+                <div id="spots-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin-bottom: 15px;">
+                    <!-- Згенерується JS -->
+                </div>
+                <button class="btn" onclick="startSpots()">Новий раунд</button>
+            </div>
+
+            <!-- Свідок -->
+            <div class="card" style="border-top: 4px solid var(--warning);">
+                <h3>??? Свідок (Деталізація)</h3>
+                <p>Подивіться на сцену 3 секунди і дайте відповідь на запитання.</p>
+                <div id="witness-scene" class="game-area">?? ?? ?? ?? ??</div>
+                <div id="witness-question" class="hidden" style="text-align: center; font-weight: bold; margin-bottom: 15px;"></div>
+                <button class="btn" id="witness-btn" onclick="startWitness()">Показати сцену</button>
+            </div>
+
+            <!-- Зворотний маршрут -->
+            <div class="card" style="border-top: 4px solid var(--highlight);">
+                <h3>?? Зворотний маршрут</h3>
+                <p>Натискайте цифри у строго зворотному порядку (від найбільшої до найменшої).</p>
+                <div id="route-grid" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 15px;"></div>
+                <button class="btn" onclick="startRoute()">Почати маршрут</button>
+            </div>
+        </div>
+
+        <!-- ================= 5. ДИТЯЧА ПСИХОЛОГІЯ ================= -->
+        <h2 class="section-title">5. Дитяча та сімейна психологія (Блок Анастасії)</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>???????? Правило «Трьох П»</h3>
+                <p>Натисніть на пункт, щоб розгорнути дію (під час тривоги):</p>
+                <details><summary>Пояснити</summary><p>Спокійним голосом скажіть дитині, що відбувається. Уникайте катастрофічних слів.</p></details>
+                <details><summary>Підтримати</summary><p>Дайте дитині улюблену іграшку, обійміть, дозвольте висловити страх.</p></details>
+                <details><summary>Поруч бути</summary><p>Фізична присутність дорослого дає базове відчуття безпеки. Сядьте на рівні очей дитини.</p></details>
+            </div>
+
+            <div class="card" style="grid-column: span 1;">
+                <h3>??? Безпечний простір</h3>
+                <table>
+                    <tr><th>Етап</th><th>Дія батьків</th></tr>
+                    <tr><td>До тривоги</td><td>Зібрати "рюкзачок безпеки" з дитиною.</td></tr>
+                    <tr><td>Під час</td><td>Дихати разом, правило "Трьох П".</td></tr>
+                    <tr><td>Після</td><td>Дати попити, похвалити за сміливість.</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ================= 6. ПАМ'ЯТКА (Скриншот) ================= -->
+        <h2 class="section-title">6. Збережіть цю пам'ятку</h2>
+        <div class="screenshot-block">
+            <h3>?? КРИЗОВА ПАМ'ЯТКА (Зробіть скриншот)</h3>
+            <p><b>Що робити при паніці:</b></p>
+            <p>1. Вдих (4 сек) - Затримка (4 сек) - Видих (4 сек).<br>
+               2. Назвати 5 предметів синього кольору навколо себе.<br>
+               3. Випити води, відчуваючи як вона тече по горлу.</p>
+            <hr style="border-color: #333;">
+            <p><b>Контакти психологів:</b><br>
+            Катерина (PsyDoc): +380635110069<br>
+            Анастасія: +380682417264</p>
+        </div>
+
+    </div>
+
+    <!-- СКРИПТИ -->
+    <script>
+        // 1. Дихання
+        let breathInt;
+        function startBreathing() {
+            const c = document.getElementById('breathe-circle');
+            clearInterval(breathInt);
+            const cycle = () => {
+                c.style.transform = 'scale(1.8)'; c.style.background = '#2ecc71'; c.innerText = 'Вдих';
+                setTimeout(() => { c.innerText = 'Затримка'; 
+                    setTimeout(() => { c.style.transform = 'scale(1)'; c.style.background = '#3498db'; c.innerText = 'Видих';
+                        setTimeout(() => { c.innerText = 'Затримка'; }, 4000);
+                    }, 4000);
+                }, 4000);
+            };
+            cycle(); breathInt = setInterval(cycle, 16000);
+        }
+
+        // 2. 5-4-3-2-1
+        function checkGrounding() {
+            const boxes = document.querySelectorAll('input[type="checkbox"]:not(.aid-check)');
+            document.getElementById('grounding-msg').classList.toggle('hidden', !Array.from(boxes).every(b => b.checked));
+        }
+
+        // 3. Стежка стійкості
+        const cards = [
+            "Яка невелика дія прямо зараз знаходиться у зоні Вашого контролю?",
+            "Опустіть плечі і зробіть видих. Що змінилося?",
+            "Знайдіть у кімнаті три речі, які викликають нейтральні емоції.",
+            "Думка — це не факт. Який доказ у Вас є прямо зараз?"
+        ];
+        function drawResilienceCard() {
+            document.getElementById('resilience-card').innerText = cards[Math.floor(Math.random() * cards.length)];
+        }
+
+        // 4. ЗСУВ
+        function checkZsuv() {
+            const v = document.getElementById('zsuv-slider').value;
+            let res = "Ви в безпечній зоні.";
+            if(v > 3 && v <= 7) res = "Зробіть зсув фокусу: знайдіть 5 речей зеленого кольору.";
+            if(v > 7) res = "Виконайте 'Обійми метелика' або почніть дихати за квадратом (віджет вище).";
+            document.getElementById('zsuv-result').innerText = `Рівень ${v}: ${res}`;
+        }
+
+        // 5. Аптечка думок
+        function checkAidKit() {
+            const checks = document.querySelectorAll('.aid-check');
+            const yesCount = Array.from(checks).filter(c => c.checked).length;
+            const res = document.getElementById('aid-result');
+            res.classList.remove('hidden');
+            if(yesCount === 0) { res.style.color = 'green'; res.innerText = "Ваш ресурс у нормі. Підтримуйте його."; }
+            else if(yesCount <= 2) { res.style.color = 'orange'; res.innerText = "Увага! Закрийте базові потреби: поїжте і поспіть."; }
+            else { res.style.color = 'red'; res.innerText = "Високий рівень виснаження. Зверніться до техніки дихання негайно."; }
+        }
+
+        // 6. Мій якір
+        function createAnchor() {
+            const val = document.getElementById('anchor-input').value;
+            if(!val) return;
+            const d = document.getElementById('anchor-display');
+            d.innerText = `? ${val}`; d.classList.remove('hidden');
+        }
+
+        // 7. Зворотний відлік
+        function generateCountdown() {
+            const tasks = ["Відніміть від 100 по 7", "Назвіть 5 міст на букву К", "Назвіть 10 тварин в алфавітному порядку"];
+            document.getElementById('countdown-task').innerText = tasks[Math.floor(Math.random() * tasks.length)];
+        }
+
+        // 8. Тренажер Без Ілюзій (Струп)
+        const stroopColors = [{t:'ЧЕРВОНИЙ',v:'red',c:'#e74c3c'},{t:'СИНІЙ',v:'blue',c:'#3498db'},{t:'ЗЕЛЕНИЙ',v:'green',c:'#2ecc71'},{t:'ЖОВТИЙ',v:'yellow',c:'#f1c40f'}];
+        let currStroop = 'blue', sScore = 0;
+        function checkStroop(ans) {
+            sScore = ans === currStroop ? sScore + 1 : 0;
+            document.getElementById('stroop-score').innerText = `Рахунок: ${sScore}`;
+            const textC = stroopColors[Math.floor(Math.random()*4)], colorC = stroopColors[Math.floor(Math.random()*4)];
+            const w = document.getElementById('stroop-word');
+            w.innerText = textC.t; w.style.color = colorC.c; currStroop = colorC.v;
+        }
+
+        // 9. Контур безпеки
+        const sequence = ['??','?','?','??'];
+        let playerSeq = [], step = 0;
+        function startContour() {
+            const d = document.getElementById('contour-display');
+            const c = document.getElementById('contour-controls');
+            d.innerText = sequence.join('  '); c.classList.add('hidden');
+            setTimeout(() => {
+                d.innerText = "Відтворіть послідовність!";
+                c.innerHTML = sequence.map(s => `<button class="sequence-btn" style="background:#2c3e50;" onclick="contourClick('${s}')">${s}</button>`).sort(() => Math.random() - 0.5).join('');
+                c.classList.remove('hidden'); playerSeq = [];
+            }, 3000);
+        }
+        function contourClick(s) {
+            playerSeq.push(s);
+            if(playerSeq[playerSeq.length-1] !== sequence[playerSeq.length-1]) {
+                alert("Помилка! Спробуйте ще раз."); startContour();
+            } else if(playerSeq.length === sequence.length) {
+                document.getElementById('contour-display').innerText = "? Чудова пам'ять!";
+                document.getElementById('contour-controls').classList.add('hidden');
+            }
+        }
+
+        // 10. Білі плями
+        function startSpots() {
+            const grid = document.getElementById('spots-grid');
+            grid.innerHTML = '';
+            const diffIndex = Math.floor(Math.random() * 16);
+            for(let i=0; i<16; i++) {
+                const box = document.createElement('div');
+                box.style.height = '40px'; box.style.background = '#34495e'; box.style.cursor = 'pointer'; box.style.borderRadius = '5px';
+                if(i === diffIndex) { box.style.opacity = '0.7'; box.onclick = () => { box.style.background = '#2ecc71'; setTimeout(startSpots, 1000); }; }
+                else { box.onclick = () => box.style.background = '#e74c3c'; }
+                grid.appendChild(box);
+            }
+        }
+        startSpots();
+
+        // 11. Свідок
+        const wScenes = [{s:"?? ?? ?? ?? ??", q:"Яка тварина була на картинці?", a:"Кіт"}, {s:"?? ? ?? ?? ???", q:"Що лежало біля кави?", a:"Окуляри"}];
+        function startWitness() {
+            const sc = wScenes[Math.floor(Math.random()*wScenes.length)];
+            const d = document.getElementById('witness-scene');
+            const q = document.getElementById('witness-question');
+            d.innerText = sc.s; d.classList.remove('hidden'); q.classList.add('hidden');
+            setTimeout(() => {
+                d.classList.add('hidden'); q.innerText = sc.q + " (Відповідь: " + sc.a + ")"; q.classList.remove('hidden');
+            }, 3000);
+        }
+
+        // 12. Зворотний маршрут
+        let routeExpected = 10;
+        function startRoute() {
+            routeExpected = 10;
+            const g = document.getElementById('route-grid'); g.innerHTML = '';
+            const nums = [1,2,3,4,5,6,7,8,9,10].sort(() => Math.random() - 0.5);
+            nums.forEach(n => {
+                const b = document.createElement('button');
+                b.className = 'sequence-btn'; b.style.background = '#8e44ad'; b.innerText = n;
+                b.onclick = () => {
+                    if(n === routeExpected) { b.style.visibility = 'hidden'; routeExpected--; if(routeExpected === 0) alert('Супер!'); }
+                    else { b.style.background = 'red'; setTimeout(()=>b.style.background='#8e44ad', 500); }
+                };
+                g.appendChild(b);
+            });
+        }
+    </script>
+</body>
+</html>
