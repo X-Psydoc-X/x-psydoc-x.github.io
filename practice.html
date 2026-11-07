@@ -41,34 +41,41 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Навігація сайту */
+        nav {
+            text-align: center;
+            padding: 20px 0;
+            background: rgba(0,0,0,0.3);
+            border-bottom: 1px solid var(--border-soft);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--accent-sage);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-terracotta);
+        }
+
         .container {
             max-width: 680px;
             margin: 0 auto;
             padding: 24px 16px 80px;
         }
 
-        .nav-back {
-            margin-bottom: 20px;
-        }
-
-        .nav-back a {
-            color: var(--accent-sage);
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-back a:hover {
-            color: var(--accent-terracotta);
-        }
-
         .main-header {
             text-align: center;
             margin-bottom: 35px;
+            margin-top: 15px;
         }
 
         .main-header h1 {
@@ -511,12 +518,15 @@
 </head>
 <body>
 
+    <!-- Навігація -->
+    <nav>
+        <a href="index.html">Головна</a>
+        <a href="practice.html" class="active">Кабінет самодопомоги</a>
+        <a href="contacts.html">Контакти та запис</a>
+    </nav>
+
     <div class="container">
         
-        <div class="nav-back">
-            <a href="index.html">← Головна сторінка</a>
-        </div>
-
         <header class="main-header">
             <h1>Кабінет психологічної самодопомоги — практичні вправи для емоційної стабілізації</h1>
             <p>Практичні техніки заземлення, дихальні вправи від тривоги та професійна психологічна самодопомога онлайн. Ефективні інструменти для відновлення емоційної рівноваги, зняття напруження та підтримки під час стресу і кризових ситуацій.</p>
