@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Кабінет самодопомоги | Тут і зараз</title>
+    <title>Кабінет психологічної самодопомоги онлайн — вправи від тривоги та стресу | PsyDoc</title>
+    <meta name="description" content="Практичні психологічні вправи та техніки самодопомоги онлайн. Дихальні вправи, заземлення, подолання тривоги, стабілізація емоційного стану та підтримка дітей під час стресу.">
+    <meta name="keywords" content="психологічна самодопомога, вправи для психологічної самодопомоги, психологічні вправи онлайн, техніки самодопомоги, екстрена психологічна допомога, вправи від тривоги, як заспокоїтися під час паніки, техніки заземлення, вправа 5-4-3-2-1, дихальні вправи, емоційна саморегуляція, психологічна стабілізація, подолання стресу, зниження тривожності, вправи для концентрації уваги, когнітивні вправи, тренування пам'яті, психологічна стійкість, відновлення внутрішніх ресурсів, психологічна допомога дітям, вправи для дітей, як заспокоїти дитину, психологічна підтримка батьків, психологічна самодопомога під час війни, ментальне здоров'я">
     
-    <!-- Красивий психологічний значок у адресній стрічці (векторний лотос у колі) -->
+    <!-- Красивий психологічний значок у адресній стрічці -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%239bc4b1' stroke-width='2'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23131c18'/%3E%3Cpath d='M16 6C16 6 23 13 23 18C23 21.8 19.8 25 16 25C12.2 25 9 21.8 9 18C9 13 16 6 16 6Z' fill='%239bc4b1' fill-opacity='0.25'/%3E%3Cpath d='M16 13C16 13 20 17 20 20C20 22.2 18.2 24 16 24C13.8 24 12 22.2 12 20C12 17 16 13 16 13Z' fill='%23e08967' stroke='%23e08967'/%3E%3C/svg%3E">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -45,7 +47,6 @@
             padding: 24px 16px 80px;
         }
 
-        /* Навігація */
         .nav-back {
             margin-bottom: 20px;
         }
@@ -65,7 +66,6 @@
             color: var(--accent-terracotta);
         }
 
-        /* Заголовок сторінки */
         .main-header {
             text-align: center;
             margin-bottom: 35px;
@@ -86,11 +86,10 @@
             font-size: 0.9rem;
             margin: 0 auto;
             font-weight: 400;
-            max-width: 500px;
+            max-width: 520px;
             line-height: 1.5;
         }
 
-        /* Секції */
         .section-title {
             font-size: 1.15rem;
             font-weight: 700;
@@ -102,7 +101,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Картки практик */
         .card {
             background-color: var(--bg-surface);
             border: 1px solid var(--border-soft);
@@ -130,7 +128,6 @@
             line-height: 1.5;
         }
 
-        /* Кнопки під мобільні тач-таргети */
         .btn {
             background-color: rgba(255, 255, 255, 0.04);
             color: var(--text-main);
@@ -147,7 +144,7 @@
             justify-content: center;
             transition: all 0.2s ease;
             user-select: none;
-            min-height: 48px; /* Оптимальна висота під палець */
+            min-height: 48px;
         }
 
         .btn:active {
@@ -166,7 +163,6 @@
             color: var(--bg-deep);
         }
 
-        /* АНІМОВАНЕ SOS ДИХАННЯ */
         .breath-container {
             text-align: center;
             padding: 10px 0;
@@ -189,7 +185,6 @@
             transition: transform 4s ease-in-out, background-color 4s ease-in-out, border-color 4s ease-in-out;
         }
 
-        /* СЕНСОРНИЙ ДЕТЕКТИВ (Інтерактивний чекліст) */
         .sensory-list {
             list-style: none;
             padding: 0;
@@ -235,7 +230,6 @@
             font-weight: bold;
         }
 
-        /* МАК КАРТКИ */
         .card-view {
             perspective: 1000px;
             width: 100%;
@@ -267,7 +261,6 @@
             opacity: 1;
         }
 
-        /* СЛАЙДЕР «ЗСУВ» */
         .slider-wrapper {
             margin: 20px 0 10px;
         }
@@ -316,7 +309,6 @@
             line-height: 1.5;
         }
 
-        /* АПТЕЧКА ДЛЯ ДУМОК */
         .check-item {
             display: flex;
             align-items: flex-start;
@@ -335,7 +327,6 @@
             flex-shrink: 0;
         }
 
-        /* ПОЛЕ ВВОДУ ДЛЯ ЯКОРІВ */
         .input-field {
             width: 100%;
             background: rgba(255, 255, 255, 0.02);
@@ -384,7 +375,6 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* СТРУП ТЕСТ */
         .stroop-zone {
             text-align: center;
             background: rgba(0, 0, 0, 0.2);
@@ -407,7 +397,6 @@
             gap: 10px;
         }
 
-        /* АКОРДЕОНИ ДЛЯ ПРАВИЛА 3П */
         .accordion-item {
             border: 1px solid var(--border-soft);
             border-radius: 12px;
@@ -437,7 +426,6 @@
             line-height: 1.5;
         }
 
-        /* ТАБЛИЦЯ "БЕЗПЕЧНИЙ ПРОСТІР" (Адаптована під мобільні) */
         .table-responsive {
             width: 100%;
             overflow-x: auto;
@@ -449,7 +437,7 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 0.85rem;
-            min-width: 400px; /* Запобігає повному стисненню тексту */
+            min-width: 400px;
         }
 
         .styled-table th, .styled-table td {
@@ -469,7 +457,6 @@
             border-bottom: none;
         }
 
-        /* КРИЗОВА ПАМ'ЯТКА (Красива плашка під скріншот) */
         .memo-box {
             background: linear-gradient(135deg, #0e1613 0%, #17241f 100%);
             border: 2px dashed rgba(155, 196, 177, 0.3);
@@ -501,7 +488,6 @@
             border-top: 1px dashed rgba(255, 255, 255, 0.1);
         }
 
-        /* Адаптація під мобільні екрани */
         @media (max-width: 600px) {
             .main-header h1 {
                 font-size: 1.55rem;
@@ -532,17 +518,17 @@
         </div>
 
         <header class="main-header">
-            <h1>Кабінет самодопомоги</h1>
-            <p>Вправи для швидкого відновлення психологічного фокусу, зниження гострої тривоги та тілесної стабілізації у кризових ситуаціях.</p>
+            <h1>Кабінет психологічної самодопомоги — практичні вправи для емоційної стабілізації</h1>
+            <p>Практичні техніки заземлення, дихальні вправи від тривоги та професійна психологічна самодопомога онлайн. Ефективні інструменти для відновлення емоційної рівноваги, зняття напруження та підтримки під час стресу і кризових ситуацій.</p>
         </header>
 
         <!-- 1. ЕКСТРЕНА САМОДОПОМОГА -->
-        <h2 class="section-title">1. Екстрена самодопомога</h2>
+        <h2 class="section-title">1. Екстрена самодопомога та панічні стани</h2>
 
         <!-- SOS Дихання -->
         <div class="card">
             <h3>🫁 SOS-Допомога (Дихання)</h3>
-            <p>Дихайте в такт колу за квадратною схемою (4-4-4-4). Це заспокоїть серцебиття та виведе нервову систему з режиму паніки.</p>
+            <p>Дихайте в такт колу за квадратною схемою (4-4-4-4). Ефективні дихальні вправи допоможуть швидко заспокоїти серцебиття та вивести нервову систему з режиму паніки.</p>
             <div class="breath-container">
                 <button class="btn btn-primary" id="startBreathBtn">Почати вправу</button>
                 <div id="breathBox" style="display:none;">
@@ -555,8 +541,8 @@
 
         <!-- Сенсорний детектив -->
         <div class="card">
-            <h3>🔍 Сенсорний детектив</h3>
-            <p>Натискайте на пункти по черзі у міру того, як знаходите предмети навколо себе. Це повертає відчуття реальності.</p>
+            <h3>🔍 Сенсорний детектив (Техніки заземлення)</h3>
+            <p>Натискайте на пункти по черзі у міру того, як знаходите предмети навколо себе. Це перевірені техніки заземлення, що повертають відчуття реальності при тривозі.</p>
             <ul class="sensory-list">
                 <li class="sensory-item" onclick="toggleSensory(this)">
                     <div class="sensory-checkbox"></div>
@@ -584,7 +570,7 @@
         <!-- Обійми метелика -->
         <div class="card">
             <h3>🦋 Обійми метелика</h3>
-            <p>Схрестіть руки на грудях. Легко й по черзі постукуйте долонями по плечах (ліве плече, праве плече), імітуючи помах крил метелика.</p>
+            <p>Схрестіть руки на грудях. Легко й по черзі постукуйте долонями по плечах (ліве плече, праве плече), імітуючи помах крил метелика для зняття гострого напруження.</p>
             <div style="background: rgba(0,0,0,0.2); padding: 14px; border-radius: 12px; font-size: 0.85rem; border-left: 3px solid var(--accent-terracotta);">
                 🧠 <b>Когнітивне завдання:</b> Поки стукаєте по плечах у ритмі пульсу, згадайте і назвіть <b>5 міст України у зворотному алфавітному порядку</b>.
             </div>
@@ -592,12 +578,12 @@
 
 
         <!-- 2. РОБОТА ЗІ СТАНОМ -->
-        <h2 class="section-title">2. Робота зі станом (Авторські інструменти)</h2>
+        <h2 class="section-title">2. Робота зі станом та емоційна стійкість</h2>
 
         <!-- Стежка стійкості -->
         <div class="card">
             <h3>🍃 Стежка стійкості</h3>
-            <p>Отримайте миттєву метафоричну пораду чи внутрішню опору з авторської колоди Катерини.</p>
+            <p>Отримайте миттєву метафоричну пораду чи внутрішню опору для зміцнення ментального здоров'я.</p>
             <div class="card-view">
                 <div id="cardInner" class="card-inner">Тут з'явиться Ваша карта...</div>
             </div>
@@ -607,7 +593,7 @@
         <!-- Детектор ЗСУВ -->
         <div class="card">
             <h3>📊 Детектор «ЗСУВ»</h3>
-            <p>Перемістіть повзунок на свій теперішній рівень тривоги, щоб підібрати чітку інструкцію.</p>
+            <p>Перемістіть повзунок на свій теперішній рівень тривоги, щоб підібрати чітку інструкцію для емоційної саморегуляції.</p>
             <div class="slider-wrapper">
                 <input type="range" min="1" max="10" value="5" class="range-slider" id="zsuvSlider">
                 <div class="slider-labels">
@@ -622,7 +608,7 @@
         <!-- Аптечка для думок -->
         <div class="card">
             <h3>💊 Аптечка для думок</h3>
-            <p>Позначте пункти, які ви спостерігаєте у себе прямо зараз, для точної діагностики стану:</p>
+            <p>Позначте пункти, які ви спостерігаєте у себе прямо зараз, для діагностики стану та зниження тривожності:</p>
             
             <label class="check-item">
                 <input type="checkbox" id="q1">
@@ -643,12 +629,12 @@
 
 
         <!-- 3. КОГНІТИВНА РЕГУЛЯЦІЯ -->
-        <h2 class="section-title">3. Когнітивна регуляція</h2>
+        <h2 class="section-title">3. Когнітивна регуляція та психологічна стабілізація</h2>
 
         <!-- Минуле/Теперішнє/Майбутнє -->
         <div class="card">
             <h3>⏳ Часова безперервність</h3>
-            <p>Проговоріть уголос відповіді на три запитання, щоб зв'язати лінію часу, яка розривається під час паніки:</p>
+            <p>Проговоріть уголос відповіді на три запитання, щоб зв'язати лінію часу під час стресу:</p>
             <div style="font-size:0.85rem; color:var(--text-main); margin-bottom:15px; line-height:1.8;">
                 • <i>«Годину тому я ще була в... і робила...»</i> (минуле)<br>
                 • <i>«Зараз я перебуваю в безпечному місці і читаю цей текст...»</i> (теперішнє)<br>
@@ -660,7 +646,7 @@
         <!-- Мій якір -->
         <div class="card">
             <h3>⚓ Мій якір (Стіна ресурсів)</h3>
-            <p>Впишіть те, що дарує Вам спокій (ім'я дитини, улюблену тварину, спогад) та прикріпіть на стіну:</p>
+            <p>Впишіть те, що дарує Вам спокій та відновлює внутрішні ресурси:</p>
             <input type="text" class="input-field" id="anchorInput" placeholder="Наприклад: Обійми доньки, мій пес, гарячий чай...">
             <button class="btn" id="addAnchorBtn">Прикріпити якір</button>
             <div class="anchor-wall" id="anchorWall"></div>
@@ -669,14 +655,14 @@
         <!-- Зворотний відлік -->
         <div class="card">
             <h3>🔢 Зворотний відлік</h3>
-            <p>Математичні операції миттєво активують лобну кору, яка знижує чутливість емоційного мозку (мигдалини).</p>
+            <p>Когнітивні вправи та математичні операції миттєво активують лобну кору, яка знижує чутливість емоційного мозку.</p>
             <button class="btn" id="getCountTaskBtn">Отримати когнітивне завдання</button>
             <div id="countTaskResult" class="zsuv-result" style="display:none;"></div>
         </div>
 
 
         <!-- 4. ТРЕНАЖЕРИ УВАГИ -->
-        <h2 class="section-title">4. Тренажери уваги</h2>
+        <h2 class="section-title">4. Психологічні вправи онлайн та тренажери уваги</h2>
 
         <!-- Тренажер Без Ілюзій -->
         <div class="card">
@@ -703,32 +689,32 @@
 
         <div class="card">
             <h3>⬜ Білі плями (Увага)</h3>
-            <p>Швидко знайдіть поглядом у кімнаті один невеликий предмет, який відрізняється за фактурою чи кольором від решти стіни.</p>
+            <p>Швидко знайдіть поглядом у кімнаті один невеликий предмет, який відрізняється за фактурою чи кольором.</p>
             <button class="btn" onclick="alert('Чудово! Тепер знайдіть найменший предмет поруч та роздивіться його краї.')">Нова спроба</button>
         </div>
 
         <div class="card">
             <h3>📸 Свідок (Деталізація)</h3>
-            <p>Сфокусуйтеся на символах нижче 3 секунди, а потім дайте відповідь на перевірочне запитання.</p>
+            <p>Сфокусуйтеся на символах нижче 3 секунди, а потім дайте відповідь на перевірочне запитання для концентрації уваги.</p>
             <div style="font-size:1.6rem; text-align:center; margin:15px 0; letter-spacing:10px;">🌲 🌊 ☀️ ⛰️ 🪵</div>
             <button class="btn" onclick="alert('Запитання на перевірку: Який символ стоїть між хвилею (🌊) та горами (⛰️)?\n\n(Правильна відповідь: Сонце ☀️)')">Я готовий відповісти</button>
         </div>
 
         <div class="card">
             <h3>↩️ Зворотний маршрут</h3>
-            <p>Генеруйте випадкові цифри та намагайтеся проговорити їх навпаки.</p>
+            <p>Генеруйте випадкові цифри для тренування пам'яті та проговорюйте їх навпаки.</p>
             <button class="btn" id="routeBtn">Отримати три числа</button>
             <div id="routeResult" class="zsuv-result" style="display:none; font-size:1.3rem; font-weight:700; letter-spacing:6px;"></div>
         </div>
 
 
         <!-- 5. ДИТЯЧА ТА СІМЕЙНА ПСИХОЛОГІЯ -->
-        <h2 class="section-title">5. Дитяча та сімейна психологія (Блок Анастасії)</h2>
+        <h2 class="section-title">5. Психологічна допомога дітям та підтримка батьків</h2>
 
         <!-- Правило 3П -->
         <div class="card">
             <h3>🤝 Правило «Трьох П» для батьків</h3>
-            <p>Важливий алгоритм допомоги дитині під час сильних емоційних потрясінь. Натисніть, щоб розкрити дію:</p>
+            <p>Ефективний алгоритм, як допомогти дитині пережити стрес і тривогу під час кризових ситуацій:</p>
             
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">1. Поруч бути <span>＋</span></div>
@@ -746,8 +732,8 @@
 
         <!-- Таблиця безпечного простору -->
         <div class="card">
-            <h3>🛡️ Безпечний простір</h3>
-            <p>Дії батьків у трикутнику спокою на різних етапах надзвичайної ситуації:</p>
+            <h3>🛡️ Емоційна безпека дитини</h3>
+            <p>Практичні дії батьків у трикутнику спокою на різних етапах надзвичайної ситуації:</p>
             <div class="table-responsive">
                 <table class="styled-table">
                     <thead>
@@ -767,7 +753,7 @@
                         </tr>
                         <tr>
                             <td><b>Після відбою</b></td>
-                            <td>Дайте теплий чай, обійміть та похваліть дитину словами: «Ти була дуже сміливою сьогодні!».</td>
+                            <td>Дайте теплий чай, обійміть та підтримайте дитину словами: «Ти була дуже сміливою сьогодні!».</td>
                         </tr>
                     </tbody>
                 </table>
@@ -776,11 +762,11 @@
 
 
         <!-- 6. ЗБЕРЕЖІТЬ ЦЮ ПАМ'ЯТКУ -->
-        <h2 class="section-title">6. Збережіть цю пам'ятку</h2>
+        <h2 class="section-title">6. Психологічна самодопомога під час війни</h2>
 
         <div class="memo-box">
             <h3 style="color:var(--accent-terracotta); margin-top:0; font-size:1.1rem; display:flex; align-items:center; gap:8px;">📸 КРИЗОВА ПАМ'ЯТКА (Скріншот)</h3>
-            <p style="color:var(--text-main); font-size:0.88rem; font-weight:600; margin-bottom:12px;">Екстрений алгоритм дій при паніці:</p>
+            <p style="color:var(--text-main); font-size:0.88rem; font-weight:600; margin-bottom:12px;">Екстрений алгоритм дій під час повітряної тривоги та обстрілів:</p>
             <ol>
                 <li><b>Дихання 4-4-4-4:</b> Вдих (4 сек) — Затримка (4 сек) — Видих (4 сек) — Затримка (4 сек).</li>
                 <li><b>Колір-контроль:</b> Знайдіть навколо та назвіть уголос 5 предметів синього або жовтого кольору.</li>
@@ -802,9 +788,8 @@
 
     </div>
 
-    <!-- ВСІ СЕНСОРНІ, ІГРОВІ ТА КОГНІТИВНІ СКРИПТИ -->
+    <!-- СКРИПТИ -->
     <script>
-        // 1. SOS ДИХАННЯ (М'яка заспокійлива анімація)
         const startBreathBtn = document.getElementById('startBreathBtn');
         const stopBreathBtn = document.getElementById('stopBreathBtn');
         const breathBox = document.getElementById('breathBox');
@@ -858,12 +843,10 @@
             breathCircle.style.transform = "scale(1)";
         });
 
-        // 2. СЕНСОРНИЙ ЧЕКЛІСТ
         function toggleSensory(element) {
             element.classList.toggle('checked');
         }
 
-        // 3. МАК КАРТКИ (Анімація появи картки)
         const pullCardBtn = document.getElementById('pullCardBtn');
         const cardInner = document.getElementById('cardInner');
         const makCards = [
@@ -883,7 +866,6 @@
             }, 200);
         });
 
-        // 4. ДЕТЕКТОР «ЗСУВ»
         const zsuvSlider = document.getElementById('zsuvSlider');
         const sliderValDisplay = document.getElementById('sliderValDisplay');
         const zsuvAdvice = document.getElementById('zsuvAdvice');
@@ -897,7 +879,7 @@
             6: "Тривожні думки забирають фокус. Обійміть себе руками та сфокусуйте погляд на одній точці.",
             7: "Стан сильного стресу. Зробіть вправу 'Обійми метелика' щонайменше 2 хвилини без зупинки.",
             8: "Сильна тілесна реакція на паніку. Обов'язково вмийте обличчя прохолодною водою, щоб скинути напругу.",
-            9: "Гострий страх на межі паніки. Почніть голосно рахувати предмети в кімнаті або скористайтеся нашою когнітивною грою.",
+            9: "Гострий страх на межі паніки. Почніть голосно рахувати предмети в кімнаті або скористайтеся когнітивною грою.",
             10: "Критична тривога (Паніка). Терміново перейдіть до вправи 'SOS-Допомога (Дихання)' на початку сторінки!"
         };
 
@@ -907,7 +889,6 @@
             zsuvAdvice.innerText = `Рівень ${val}: ${advices[val]}`;
         });
 
-        // 5. АПТЕЧКА ДЛЯ ДУМОК
         document.getElementById('getAptekaBtn').addEventListener('click', () => {
             const q1 = document.getElementById('q1').checked;
             const q2 = document.getElementById('q2').checked;
@@ -926,7 +907,6 @@
             resBox.style.display = 'block';
         });
 
-        // 6. СТІНА РЕСУРСІВ (ЯКОРІ)
         document.getElementById('addAnchorBtn').addEventListener('click', () => {
             const input = document.getElementById('anchorInput');
             const wall = document.getElementById('anchorWall');
@@ -939,7 +919,6 @@
             }
         });
 
-        // 7. ЗВОРОТНИЙ ВІДЛІК
         document.getElementById('getCountTaskBtn').addEventListener('click', () => {
             const tasks = [
                 "Рахуйте від 100 у зворотний бік, віднімаючи по 7 (100, 93, 86, 79...)",
@@ -953,7 +932,6 @@
             res.style.display = 'block';
         });
 
-        // 8. ГРА «БЕЗ ІЛЮЗІЙ» (STROOP EFFECT)
         const stroopWord = document.getElementById('stroopWord');
         const stroopScore = document.getElementById('stroopScore');
         const words = ["ЧЕРВОНИЙ", "СИНІЙ", "ЗЕЛЕНИЙ", "ЖОВТИЙ"];
@@ -988,7 +966,6 @@
         setupStroopButtons();
         nextStroopRound();
 
-        // 9. ЗВОРОТНИЙ МАРШРУТ
         document.getElementById('routeBtn').addEventListener('click', () => {
             const num1 = Math.floor(Math.random() * 90) + 10;
             const num2 = Math.floor(Math.random() * 90) + 10;
@@ -998,7 +975,6 @@
             box.style.display = 'block';
         });
 
-        // 10. АКОРДЕОНИ
         function toggleAccordion(header) {
             const content = header.nextElementSibling;
             const icon = header.querySelector('span');
