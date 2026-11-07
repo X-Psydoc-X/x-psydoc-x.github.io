@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Психологічна допомога | Катерина Тарасова & Анастасія Кульчицька</title>
     
-    <!-- КРАСИВА ІКОНКА ДЛЯ ВКЛАДКИ БРАУЗЕРА (ФАВІКОН) -->
+    <!-- SEO-ОПТИМІЗАЦІЯ ТА АВТОРСТВО -->
+    <title>Психологічна допомога в Рівному | Катерина ТАРАСОВА (PsyDoc) & Анастасія Кульчицька</title>
+    <meta name="description" content="Кваліфікована психологічна допомога в Рівному. Кризовий психолог Катерина ТАРАСОВА (PsyDoc), військовий психолог, робота з ПТСР та травмою, адаптація ветеранів. Сімейний та дитячий психолог Анастасія Кульчицька. Авторське програмне забезпечення PsyMetaStudio для психотерапевтів.">
+    <meta name="keywords" content="Катерина Тарасова, PsyDoc, Катерина ТАРАСОВА, психологічна допомога, консультація психолога онлайн, психолог у Рівному, кризовий психолог, військовий психолог, ПТСР, робота з психологічною травмою, сімейний психолог, дитячий психолог, КПТ, EMDR, програма для психолога, PsyMetaStudio">
+    <meta name="author" content="Катерина ТАРАСОВА (PsyDoc) & Анастасія Кульчицька">
+
+    <!-- Open Graph для соцмереж -->
+    <meta property="og:title" content="Психологічна допомога в Рівному | Катерина ТАРАСОВА (PsyDoc)">
+    <meta property="og:description" content="Професійна психологічна підтримка, кризове консультування, допомога ветеранам та авторські цифрові інструменти (PsyMetaStudio) для психотерапевтів.">
+    <meta property="og:type" content="website">
+
+    <!-- ФАВІКОН -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -46,15 +56,33 @@
             100% { transform: translate(-40px, 40px) scale(1.08); }
         }
 
+        nav {
+            text-align: center;
+            padding: 25px 0;
+            background: rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: #8fbfa7;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #e28766;
+        }
+
         header {
             max-width: 900px;
             margin: 0 auto;
-            padding: 70px 20px 40px;
+            padding: 40px 20px 40px;
             text-align: center;
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 300;
             letter-spacing: -1px;
             margin: 0 0 20px;
@@ -243,6 +271,51 @@
             border-bottom-color: var(--accent-warm);
         }
 
+        /* СОФТ БЛОК (Презентація PsyMetaStudio) */
+        .software-section {
+            background: linear-gradient(135deg, rgba(22, 34, 28, 0.7) 0%, rgba(16, 23, 20, 0.9) 100%);
+            border: 1px solid rgba(143, 191, 167, 0.25);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .software-section h3 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--accent-glow);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .software-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            padding: 18px;
+            border-radius: 14px;
+        }
+
+        .feature-item h5 {
+            color: var(--accent-warm);
+            margin: 0 0 8px;
+            font-size: 1rem;
+        }
+
+        .feature-item p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            font-weight: 300;
+        }
+
         .action-block {
             border-top: 1px solid var(--border);
             padding-top: 50px;
@@ -276,156 +349,124 @@
             background-color: #fca5a5;
         }
 
-        /* АДАПТИВНІСТЬ ДЛЯ ПЛАНШЕТІВ ТА СЕРЕДНІХ ЕКРАНІВ */
         @media (max-width: 900px) {
-            .team-grid { 
-                grid-template-columns: 1fr; 
-                gap: 25px; 
-            }
-            header { 
-                padding: 40px 15px 25px; 
-            }
-            header h1 { 
-                font-size: 2.2rem; 
-            }
-            .profile-card { 
-                padding: 30px; 
-            }
-        }
-
-        /* ТОНКЕ НАЛАШТУВАННЯ ДЛЯ СМАРТФОНІВ (ЕКРАНИ ДО 480PX) */
-        @media (max-width: 480px) {
-            header h1 { 
-                font-size: 1.8rem; 
-            }
-            .tandem-intro { 
-                padding: 20px 15px; 
-                font-size: 0.95rem; 
-            }
-            .breathing-section { 
-                padding: 25px 15px; 
-            }
-            .profile-card { 
-                padding: 22px 18px; 
-                border-radius: 20px; 
-            }
-            .profile-card h2 { 
-                font-size: 1.5rem; 
-            }
-            .role-tag { 
-                font-size: 0.75rem; 
-                margin-bottom: 15px; 
-                letter-spacing: 1px; 
-            }
-            .manifesto { 
-                padding-left: 15px; 
-                margin: 20px 0; 
-                font-size: 0.92rem; 
-            }
-            .info-block h4 { 
-                font-size: 0.85rem; 
-            }
-            .info-block p { 
-                font-size: 0.9rem; 
-            }
-            .contacts-list { 
-                margin-top: 25px; 
-                padding-top: 20px; 
-            }
-            .contacts-list li { 
-                font-size: 0.88rem; 
-                margin-bottom: 14px; 
-            }
-            .btn { 
-                display: block; 
-                width: 100%; 
-                box-sizing: border-box; 
-                padding: 15px 20px; 
-                font-size: 0.95rem; 
-            }
+            .team-grid, .software-features { grid-template-columns: 1fr; gap: 25px; }
+            header { padding: 30px 15px 20px; }
+            header h1 { font-size: 2.1rem; }
         }
     </style>
 </head>
 <body>
-    <nav style="text-align: center; padding: 25px 0; background: rgba(0,0,0,0.2);">
-    <a href="index.html" style="color: #e28766; text-decoration: none; font-weight: 600; margin: 0 15px; border-bottom: 2px solid #e28766;">Головна</a>
-    <a href="practice.html" style="color: #8fbfa7; text-decoration: none; font-weight: 600; margin: 0 15px;">Практика (Тут і зараз)</a>
-</nav>
+
+    <nav>
+        <a href="index.html" style="border-bottom: 2px solid #e28766;">Головна</a>
+        <a href="practice.html">Практика (Тут і зараз)</a>
+    </nav>
 
     <div class="glow-bg"></div>
 
     <header>
-        <h1>Простір Ментальної Стійкості</h1>
+        <h1>Простір Ментальної Стійкості та Психологічної Допомоги у Рівному</h1>
         <div class="tandem-intro">
-            Ми — професійний тандем психологинь, чия співпраця базується на спільних цінностях, повазі до людської гідності та відданості справі. Ми об'єднали знання та практичний досвід, щоб забезпечити кваліфіковану психологічну допомогу, кризове консультування та психоемоційну підтримку тим, хто цього потребує.
+            Ми — професійний тандем психологинь. Наша мета — забезпечити кваліфіковану <b>психологічну допомогу та підтримку</b>, кризове консультування, емоційне відновлення і подолання стресу для військовослужбовців, ветеранів та цивільних громадян.
         </div>
     </header>
 
     <div class="container">
         
+        <!-- БРЕАТХІНГ БЛОК -->
         <section class="breathing-section">
             <h3 style="margin-top:0; font-weight: 400; color: #9ca3af; font-size: 1.1rem;">Відчуваєте тривогу чи напругу?</h3>
             <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 15px;">Зробіть коротку паузу. Натисніть на коло та дихайте в такт: глибокий вдих при розширенні, повільний видих при звуженні.</p>
             <div class="breathing-circle" id="breathBtn">Дихати</div>
         </section>
 
+        <!-- ПРЕЗЕНТАЦІЯ АВТОРСЬКОГО СОФТУ (PsyMetaStudio) -->
+        <section class="software-section">
+            <span class="role-tag">Професійний інструмент для фахівців</span>
+            <h3>🛡️ PsyMetaStudio Client Edition</h3>
+            <p style="color: #cbd5e1; font-weight: 300; line-height: 1.7; margin-bottom: 20px;">
+                Спеціалізоване програмне забезпечення, створене практикуючим психологом <b>Катериною ТАРАСОВОЮ (PsyDoc)</b> для колег. Програма поєднує максимальну конфіденційність (локальні бази даних із шифруванням та захистом ПІН-кодом, що працюють повністю в офлайні) та унікальний клінічний функціонал.
+            </p>
+            
+            <div class="software-features">
+                <div class="feature-item">
+                    <h5>📚 Клінічна база знань</h5>
+                    <p>Повний текст авторської книги Катерини ТАРАСОВОЇ (PsyDoc) «Ключ до клієнта: Інтегративний інструментарій»[cite: 3] прямо в програмі. Пошук за 270 техніками та 74 протоколами за секунду.</p>
+                </div>
+                <div class="feature-item">
+                    <h5>🎨 МАК-студія та Дошка</h5>
+                    <p>Цифровий простір для роботи з метафоричними асоціативними картами, викладання та проєктивної терапії під час онлайн та офлайн сесій.</p>
+                </div>
+                <div class="feature-item">
+                    <h5>🔒 Захищений архів кейсів</h5>
+                    <p>Зберігання нотаток (SOAP/DAP), вбудовані тести (PHQ-9, GAD-7) із підрахунком балів та галерея робіт (малюнки, карти).</p>
+                </div>
+                <div class="feature-item">
+                    <h5>🎙️ Транскрибатор & Фінтрекер</h5>
+                    <p>Переведення аудіозаписів сесій у текст (Whisper) для протоколів, а також зручний облік оплат та фінансової аналітики практики.</p>
+                </div>
+            </div>
+
+         <div style="text-align: center; margin-top: 25px;">
+    <p style="font-size: 0.9rem; color: #9ca3af; margin-bottom: 15px;">Працює на Windows (офлайн, повна безпека даних).</p>
+   <a href="https://github.com/X-Psydoc-X/x-psydoc-x.github.io/releases/download/v1.0/PsyMetaStudio.rar" class="btn" target="_blank" rel="noopener noreferrer">Завантажити PsyMetaStudio (Windows)</a>
+        </section>
+
+        <!-- КОМАНДА (Психологині) -->
         <div class="team-grid">
             
             <!-- КАТЕРИНА ТАРАСОВА -->
             <div class="profile-card">
                 <div>
-                    <span class="role-tag">Кризовий психолог | ТВО Військового психолога (демобілізована)</span>
-                    <h2>Катерина Тарасова</h2>
+                    <span class="role-tag">Кризовий психолог | Військовий психолог | Рівне</span>
+                    <h2>Катерина ТАРАСОВА (PsyDoc)</h2>
                     
                     <div class="manifesto">
                         «Моє покликання — бути опорою в часи найвищої вразливості, допомагаючи трансформувати травматичний досвід у ресурс для подальшого життя».
                     </div>
 
                     <div class="info-block">
-                        <h4>Авторська книга</h4>
-                        <p style="font-weight: 500; color: var(--accent-warm);">📖 «Ключ до клієнта. Інтегрований інструментарій для психологів та психотерапевтів»</p>
+                        <h4>Авторська книга та софт</h4>
+                        <p style="font-weight: 500; color: var(--accent-warm);">📖 «Ключ до клієнта. Інтегративний інструментарій»[cite: 3]</p>
                     </div>
 
                     <div class="info-block">
-                        <h4>Про мене</h4>
-                        <p>Старший бойовий медик, ТВО військового психолога (демобілізована), КПТ-консультантка, психосоціальна консультантка ТЧХУ, тренерка соціальних та громадських проєктів. Менеджерка TRiM та фасилітаторка груп підтримки.</p>
+                        <h4>Про мене та спеціалізація</h4>
+                        <p>Старший бойовий медик, ТВО військового психолога (демобілізована), КПТ-консультантка, психосоціальна консультантка ТЧХУ[cite: 3]. Спеціалізуюся на роботі з ПТСР, психологічною травмою, кризовому консультуванні військових і ветеранів, а також емоційному відновленні.</p>
                     </div>
 
                     <div class="info-block">
                         <h4>Досвід та освіта</h4>
-                        <p>Магістр психології, здобуваю спеціалізацію клінічного психолога. Військовий досвід дає змогу глибоко розуміти природу травми, кризи та адаптації людини після важких життєвих випробувань.</p>
+                        <p>Магістр психології[cite: 3]. Досвід роботи в екстремальних умовах дає змогу глибоко розуміти природу травми та адаптацію після бойового досвіду й демобілізації.</p>
                     </div>
 
                     <div class="info-block">
                         <h4>Методологія</h4>
-                        <p>Поєдную науково доведені підходи: когнітивно-поведінкову терапію (КПТ), трансактний аналіз, юнгіанський аналіз, EMDR та діалектичну поведінкову терапію (ДПТ).</p>
+                        <p>Когнітивно-поведінкова терапія (КПТ), EMDR-терапія, трансактний аналіз, діалектична поведінкова терапія (ДПТ).</p>
                     </div>
 
                     <div class="info-block">
-                        <h4>Авторські терапевтичні карти та колоди</h4>
+                        <h4>Авторські колоди МАК</h4>
                         <div class="project-tags">
-                            <span class="tag">«Стежка стійкості»</span>
-                            <span class="tag">«Без Ілюзій»</span>
-                            <span class="tag">«ЗСУВ»</span>
-                            <span class="tag">«Білі плями»</span>
-                            <span class="tag">«Контур»</span>
-                            <span class="tag">«Мономіф»</span>
-                            <span class="tag">«8 кроків»</span>
+                            <span class="tag">«Стежка Стійкості»[cite: 3]</span>
+                            <span class="tag">«Без Ілюзій»[cite: 3]</span>
+                            <span class="tag">«ЗСУВ»[cite: 3]</span>
+                            <span class="tag">«Білі плями»[cite: 3]</span>
+                            <span class="tag">«Мономіф»[cite: 3]</span>
+                            <span class="tag">«8 кроків»[cite: 3]</span>
                         </div>
                     </div>
                 </div>
 
                 <div>
                     <ul class="contacts-list">
-                        <li><span class="icon">📞</span> <b>Тел:</b>&nbsp;<a href="tel:+380635110069">+380 (63) 511-00-69</a>&nbsp;/&nbsp;<a href="tel:+380977836554">+380 (97) 783-65-54</a></li>
+                        <li><span class="icon">📞</span> <b>Тел:</b>&nbsp;<a href="tel:+380635110069">+380 (63) 511-00-69</a>&nbsp;/&nbsp;<a href="tel:+380977836554">+380 (97) 783-65-54</a>[cite: 3]</li>
                         <li><span class="icon">✉️</span> <b>Email:</b>&nbsp;<a href="mailto:x.psydoc.x@gmail.com">x.psydoc.x@gmail.com</a></li>
                         <li><span class="icon">👥</span> <b>Facebook:</b>&nbsp;<a href="https://www.facebook.com/ekaterina.tarasova.14766" target="_blank" rel="noopener noreferrer">Профіль FB</a></li>
-                        <li><span class="icon">📸</span> <b>Instagram / Threads:</b>&nbsp;<a href="https://www.instagram.com/x.psydoc.x" target="_blank" rel="noopener noreferrer">@x.psydoc.x</a></li>
+                        <li><span class="icon">📸</span> <b>Instagram:</b>&nbsp;<a href="https://www.instagram.com/x.psydoc.x" target="_blank" rel="noopener noreferrer">@x.psydoc.x</a></li>
                         <li><span class="icon">💬</span> <b>Telegram:</b>&nbsp;<a href="https://t.me/x_psydoc_x" target="_blank" rel="noopener noreferrer">@x_psydoc_x</a></li>
-                        <li><span class="icon">📱</span> <b>Viber / Signal:</b>&nbsp;+380977836554</li>
-                        <li><span class="icon">💬</span> <b>WhatsApp:</b>&nbsp;@x.psydoc.x</li>
-                        <li><span class="icon">🛡️</span> <b>Milchat ID:</b>&nbsp;d4b8ca92</li>
-                        <li><span class="icon">📍</span> <b>Локація:</b>&nbsp;м. Рівне (приватна практика та офлайн)</li>
+                        <li><span class="icon">📍</span> <b>Локація:</b>&nbsp;м. Рівне[cite: 3] та Рівненська область (онлайн / офлайн)</li>
                     </ul>
                 </div>
             </div>
@@ -433,23 +474,21 @@
             <!-- АНАСТАСІЯ КУЛЬЧИЦЬКА -->
             <div class="profile-card">
                 <div>
-                    <span class="role-tag">Практичний психолог</span>
+                    <span class="role-tag">Практичний психолог | Сімейний психолог | Рівне</span>
                     <h2>Анастасія Кульчицька</h2>
                     
                     <div class="manifesto">
                         «Допомагаю долати емоційні труднощі та відновлювати внутрішню рівновагу».
                     </div>
 
-                    <!-- Оновлений опис від першої особи з досвідом у школі -->
                     <div class="info-block">
-                        <h4>Про мене</h4>
-                        <p>Я — магістр психології, практичний психолог та психосоціальна консультантка Українського Червоного Хреста. Протягом 8 років я працювала психологом у школі, що дало мені колосальний досвід та глибоке розуміння дитячої поведінки й особливостей сімейних взаємин.</p>
+                        <h4>Про мене та спеціалізація</h4>
+                        <p>Магістр психології, практичний психолог та психосоціальна консультантка Українського Червоного Хреста[cite: 3]. Маю 8 років досвіду роботи шкільним психологом. Спеціалізуюся на дитячій та сімейній психології, роботі з дитячо-батьківськими стосунками.</p>
                     </div>
 
-                    <!-- Оновлений фокус від першої особи -->
                     <div class="info-block">
                         <h4>Професійний фокус</h4>
-                        <p>Спеціалізуюся на наданні психосоціальної підтримки в умовах кризових ситуацій. Маю знання та компетенції у сфері військової психології, активно працюю з нашими військовослужбовцями та їхніми родинами. Надаю фахову психологічну допомогу в складних питаннях дитячої та сімейної психології, спираючись на багаторічний практичний досвід.</p>
+                        <p>Психосоціальна підтримка родин військових, психологічна допомога підліткам, подолання тривожності та стресу, підтримка батьків у кризових ситуаціях.</p>
                     </div>
                 </div>
 
@@ -459,7 +498,6 @@
                         <li><span class="icon">👥</span> <b>Facebook:</b>&nbsp;<a href="https://www.facebook.com/profile.php?id=100021855495855" target="_blank" rel="noopener noreferrer">Профіль FB</a></li>
                         <li><span class="icon">📸</span> <b>Instagram:</b>&nbsp;<a href="https://www.instagram.com/anactacijka" target="_blank" rel="noopener noreferrer">@anactacijka</a></li>
                         <li><span class="icon">💬</span> <b>Telegram:</b>&nbsp;<a href="https://t.me/anactacijka" target="_blank" rel="noopener noreferrer">@anactacijka</a></li>
-                        <li><span class="icon">📱</span> <b>Viber:</b>&nbsp;+380682417264</li>
                     </ul>
                 </div>
             </div>
@@ -467,12 +505,12 @@
         </div>
 
         <section class="action-block">
-            <h3>Навчальний курс «Від фронту до дому»</h3>
-            <p style="color: #9ca3af; max-width: 600px; margin: 10px auto 20px;">Програма психологічної адаптації, підтримки та розуміння для тих, хто повертається до цивільного життя, та їхніх близьких.</p>
+            <h3>Навчальний курс «Від фронту до дому»[cite: 3]</h3>
+            <p style="color: #9ca3af; max-width: 600px; margin: 10px auto 20px;">Програма психологічної адаптації, підтримки та розуміння для військових, які повертаються до цивільного життя, та їхніх близьких.</p>
             <a href="https://forms.gle/7rKhADH2onNPycK9A" class="btn" target="_blank" rel="noopener noreferrer">Заповнити форму для запису</a>
             
             <p style="margin-top: 30px; font-size: 0.95rem; color: #6b7280;">
-                🤝 <b>Співпраця:</b> З питань партнерства, спільних громадських проєктів чи офлайн-тренінгів звертайтеся до Катерини через месенджери або на пошту <a href="mailto:x.psydoc.x@gmail.com" style="color: var(--accent-warm); text-decoration: none;">x.psydoc.x@gmail.com</a>
+                🤝 <b>Співпраця:</b> З питань партнерства, спільних громадських проєктів чи тренінгів у Рівному звертайтеся до Катерини через месенджери або на пошту <a href="mailto:x.psydoc.x@gmail.com" style="color: var(--accent-warm); text-decoration: none;">x.psydoc.x@gmail.com</a>
             </p>
         </section>
 
