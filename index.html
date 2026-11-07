@@ -60,13 +60,17 @@
             text-align: center;
             padding: 25px 0;
             background: rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: #8fbfa7;
             text-decoration: none;
             font-weight: 600;
-            margin: 0 15px;
+            margin: 0 10px;
             transition: color 0.3s;
         }
 
@@ -359,8 +363,9 @@
 <body>
 
     <nav>
-        <a href="index.html" style="border-bottom: 2px solid #e28766;">Головна</a>
-        <a href="practice.html">Практика (Тут і зараз)</a>
+        <a href="index.html" class="active">Головна</a>
+        <a href="practice.html">Кабінет самодопомоги</a>
+        <a href="contacts.html">Контакти та запис</a>
     </nav>
 
     <div class="glow-bg"></div>
@@ -510,6 +515,10 @@
             <p style="color: #9ca3af; max-width: 600px; margin: 10px auto 20px;">Програма психологічної адаптації, підтримки та розуміння для військових, які повертаються до цивільного життя, та їхніх близьких.</p>
             <a href="https://forms.gle/7rKhADH2onNPycK9A" class="btn" target="_blank" rel="noopener noreferrer">Заповнити форму для запису</a>
             
+            <div style="margin-top: 30px;">
+                <a href="contacts.html" class="btn" style="background-color: var(--accent-glow); color: #111815;">Перейти до сторінки Контактів та Запису 📋</a>
+            </div>
+
             <p style="margin-top: 30px; font-size: 0.95rem; color: #6b7280;">
                 🤝 <b>Співпраця:</b> З питань партнерства, спільних громадських проєктів чи тренінгів у Рівному звертайтеся до Катерини через месенджери або на пошту <a href="mailto:x.psydoc.x@gmail.com" style="color: var(--accent-warm); text-decoration: none;">x.psydoc.x@gmail.com</a>
             </p>
